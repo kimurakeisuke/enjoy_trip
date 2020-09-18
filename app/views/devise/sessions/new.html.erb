@@ -4,11 +4,14 @@
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-group">
       <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', placeholder: "例 : email@kkkkkk.net"%>
     </div>
     <div class="form-group">
-      <%= f.label :password %>
-      <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
+      <div class="d-flex justify-content-between">
+        <%= f.label :password %>
+        <%= link_to "パスワードを忘れてしまった方はコチラ", new_password_path(resource_name), class: "forgot-passward" %>
+      </div>
+      <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' , placeholder: "例 : 6字以上の半角英数字" %>
     </div>
     <% if devise_mapping.rememberable? %>
       <div class="form-group form-check">
@@ -22,5 +25,4 @@
       <%= f.submit  t('.sign_in'), class: 'btn btn-primary btn-block' %>
     </div>
   <% end %>
-  <%= render 'devise/shared/links' %>
 </div>

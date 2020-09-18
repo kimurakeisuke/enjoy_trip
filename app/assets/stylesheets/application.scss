@@ -33,3 +33,55 @@
 .alert-alert {
   @extend .alert-danger;
 }
+
+.navbar-header {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.nav-link {
+  text-align: right;
+}
+
+.forgot-passward {
+  font-size: 11px;
+  margin-top: 0.5rem;
+  // display: inline-block;
+}
+
+.nav-login {
+  // padding: 0.5em 1em;
+  // margin: 2em 0;
+  margin: -1px 10px;
+  font-weight: normal;
+  color: #6091d3;
+  background: #FFF;
+  border: solid 1px #6091d3;
+  border-radius: 30px;
+}
+
+.nav-new {
+  // padding: 0.5em 1em;
+  // margin: 2em 0;
+  margin: -1px 10px;
+  font-weight: normal;
+  color: #6091d3;
+  background: #FFF;
+  border: solid 1px #6091d3;
+  border-radius: 30px;
+}
+
+.text-brown {
+  opacity: 0.6;
+}
+
+.nav-account {
+  // padding: 0.5em 1em;
+  // margin: 2em 0;
+  margin: -1px 10px;
+  font-weight: normal;
+  color: #6091d3;
+  background: #FFF;
+  border: solid 1px #6091d3;
+  border-radius: 30px;
+}

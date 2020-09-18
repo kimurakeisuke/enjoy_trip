@@ -1,22 +1,47 @@
 <header>
-  <nav class="navbar navbar-expand navbar-light">
-    <%= link_to "Deviseサンプル", "#", class: 'navbar-brand' %>
+  <%# <% binding.pry %>
+  <nav class="navbar navbar-expand navbar-light navbar-header">
+    <ul class="navbar-nav mr-auto">
+      <%= link_to "好きな旅行先投稿アプリ", "#", class: 'navbar-brand' %>
+    </ul>
     <div id="Navber">
       <ul class="navbar-nav">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item active">
+          <% if request.path != "/users/edit"%>
+            <li class="nav-item active">
+              <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link' %>
+            </li>
+          <% end %>
+          <li class="nav-item active nav-account">
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
           </li>
-      <% else %>
-          <li class="nav-item active">
-            <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
-          </li>
+        <% else %>
+          <% if request.path == "/users/sign_in" %>
+            <li class="nav-item active">
+              <span class="nav-link text-brown">
+                まだ会員でない方
+              </span>
+            </li>
+            <li class="nav-item active nav-new">
+              <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
+            </li>
+          <% elsif request.path == "/users/sign_up" %>
+            <li class="nav-item active ">
+              <span class="nav-link text-brown">
+                既に会員の方
+              </span>
+            </li>
+            <li class="nav-item active nav-login">
+              <%= link_to "ログイン", new_user_session_path, class: 'nav-link'%>
+            </li>
+          <% else %>
+            <li class="nav-item active ">
+              <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </div>
