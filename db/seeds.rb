@@ -6,16 +6,29 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# User.destroy_all
-# Travel.destroy_all
-# Like.destroy_all
+User.destroy_all
+Travel.destroy_all
+TravelDetail.destroy_all
 
-# user1 = User.create!(name: "木村恵輔", email: "kimura@example.com", password: "password")
-# user2 = User.create!(name: "たけさん", email: "takesan@example.com", password: "password")
+user1 = User.create!(name: "木村恵輔", email: "kimura@example.com", password: "password")
+user2 = User.create!(name: "たけさん", email: "takesan@example.com", password: "password")
 # # user3 = User.create!(email: "taichisan@example.com", password: "password")
 # # user4= User.create!(email: "jinbosan@example.com", password: "password")
 
-# Travel.create!(country: "スウェーデン", location: "ストックホルム", image: "", content: "ストックホルムの旧市街でガムラスタンの街並みが気に入っています。魔女の宅急便のモデルにもなった街です。スウェーデンに訪れた時は必ず行きます。", user_id: user1.id)
-# Travel.create!(country: "日本", location: "沖縄", image: "", content: "沖縄にある最強食堂という定食屋さんの唐揚げ定食が好きです。", user_id: user2.id)
+travel1 = Travel.create!(country: "スウェーデン", location: "ストックホルム", travel_plan: "羽田空港からフランスのシャルルドゴール空港に行き、シャルルドゴール空港からスウェーデンのアーランダー空港に到着", user_id: user1.id)
+travel2 = Travel.create!(country: "日本", location: "沖縄", travel_plan: "やんばるCODEから歩いて15分くらいのところにある定食屋さん", user_id: user2.id)
 
-# puts "初期データの投入に成功しました。"
+travel_detail1 = TravelDetail.create!(image: "", content: "ストックホルムの旧市街でガムラスタンの街並みが気に入っています。魔女の宅急便のモデルにもなった街です。スウェーデンに訪れた時は必ず行きます。", travel_id: travel1.id)
+travel_detail2 = TravelDetail.create!(image: "", content: "沖縄にある最強食堂という定食屋さんの唐揚げ定食が好きです。", travel_id: travel2.id)
+
+travel1.travel_detail_id = travel_detail1.id
+travel2.travel_detail_id = travel_detail2.id
+
+travel1.save!
+travel2.save!
+
+puts "初期データの投入に成功しました。"
+
+#  content: "ストックホルムの旧市街でガムラスタンの街並みが気に入っています。魔女の宅急便のモデルにもなった街です。スウェーデンに訪れた時は必ず行きます。"
+
+# content: "沖縄にある最強食堂という定食屋さんの唐揚げ定食が好きです。",

@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_09_21_025556) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "travel_plan"
-    t.integer "travel_details_id"
+    t.integer "travel_detail_id"
     t.index ["user_id"], name: "index_travels_on_user_id"
   end
 

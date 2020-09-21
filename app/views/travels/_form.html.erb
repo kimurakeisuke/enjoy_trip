@@ -1,0 +1,15 @@
+<%= form_with model: @travel, local: true do |form| %>
+  <p>
+    <%= form.label :country %>
+    <%= form.text_field :country %>
+  </p>
+  <p>
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </p>
+  <p>
+    <%= form.label :travel_plan %>
+    <%= form.text_area :travel_plan %>
+  </p>
+  <p><%= form.submit "送信" %></p>
+<% end %>

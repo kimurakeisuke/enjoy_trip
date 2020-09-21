@@ -1,0 +1,6 @@
+<h1>投稿詳細</h1>
+<p><%= @travel.country %></p>
+<% if @travel.image? %>
+  <p><%= image_tag @travel.image.url %></p>
+<% end %>
+<p><%= link_to "投稿一覧", travels_path %></p>
