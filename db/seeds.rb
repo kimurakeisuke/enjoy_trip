@@ -10,10 +10,10 @@
 # Travel.destroy_all
 # Like.destroy_all
 
-# user1 = User.create!(email: "kimura@example.com", password: "password")
-# user2 = User.create!(email: "takesan@example.com", password: "password")
-# user3 = User.create!(email: "taichisan@example.com", password: "password")
-# user4= User.create!(email: "jinbosan@example.com", password: "password")
+# user1 = User.create!(name: "木村恵輔", email: "kimura@example.com", password: "password")
+# user2 = User.create!(name: "たけさん", email: "takesan@example.com", password: "password")
+# # user3 = User.create!(email: "taichisan@example.com", password: "password")
+# # user4= User.create!(email: "jinbosan@example.com", password: "password")
 
 # Travel.create!(country: "スウェーデン", location: "ストックホルム", image: "", content: "ストックホルムの旧市街でガムラスタンの街並みが気に入っています。魔女の宅急便のモデルにもなった街です。スウェーデンに訪れた時は必ず行きます。", user_id: user1.id)
 # Travel.create!(country: "日本", location: "沖縄", image: "", content: "沖縄にある最強食堂という定食屋さんの唐揚げ定食が好きです。", user_id: user2.id)
