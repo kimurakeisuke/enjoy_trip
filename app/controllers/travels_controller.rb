@@ -1,4 +1,5 @@
 class TravelsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_travel, only: %i[show edit update destroy]
 
   def index
@@ -7,14 +8,16 @@ class TravelsController < ApplicationController
 
   def new
     @travel = Travel.new
+    @travel.travel_details.build
   end
 
   def create
-    travel = Travel.create!(travel_params)
+    travel = current_user.travels.create!(travel_params)
     redirect_to travel
   end
 
   def show
+    @travel = Travel.find(params[:id])
   end
 
   def edit
@@ -37,6 +40,6 @@ class TravelsController < ApplicationController
   end
 
   def travel_params
-    params.require(:travel).permit(:country, :location, :travel_plan)
+    params.require(:travel).permit(:country, :location, :travel_plan, travel_details_attributes: [:image, :content, :_destroy])
   end
 end

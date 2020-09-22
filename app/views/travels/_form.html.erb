@@ -11,5 +11,11 @@
     <%= form.label :travel_plan %>
     <%= form.text_area :travel_plan %>
   </p>
+  <p>
+    <%= form.label :travel_details %>
+    <%= form.fields :travel_details do |detail_form| %>
+      <% render "detail_form", form: detail_form %>
+    <% end %>
+  </p>
   <p><%= form.submit "送信" %></p>
 <% end %>
