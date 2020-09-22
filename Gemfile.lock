@@ -71,6 +71,7 @@ GEM
       image_processing (~> 1.1)
       mimemagic (>= 0.3.0)
       mini_mime (>= 0.1.3)
+    cocoon (1.2.15)
     coderay (1.1.3)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
@@ -220,6 +221,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   carrierwave (~> 2.0)
+  cocoon
   devise
   devise-bootstrap-views (~> 1.0)
   devise-i18n
@@ -234,7 +236,6 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
-  tzinfo-data
   web-console (>= 3.3.0)
   webpacker (~> 4.0)
 
