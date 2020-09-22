@@ -13,9 +13,12 @@
   </p>
   <p>
     <%= form.label :travel_details %>
-    <%= form.fields :travel_details do |detail_form| %>
-      <% render "detail_form", form: detail_form %>
+    <%= form.fields :travel_details do |travel_detail| %>
+      <% render "travel_detail_fields", f: travel_detail %>
     <% end %>
+  </p>
+  <p>
+    <%= link_to_add_association "＋写真とコメントを追加", form, :travel_details %>
   </p>
   <p><%= form.submit "送信" %></p>
 <% end %>
