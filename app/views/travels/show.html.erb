@@ -1,8 +1,12 @@
 <h1>投稿詳細</h1>
+<h2>map</h2>
+<input id="address" type="textbox" value="">
+<input type="button" value="検索" onclick="codeAddress()">
+<div id='map'></div>
 <p>国名</p>
 <p><%= @travel.country %></p>
 <p>都市</p>
-<p><%= @travel.location %></p>
+<p id="travel-position"><%= @travel.location %></p>
 <p>旅行プラン</p>
 <p><%= @travel.travel_plan %></p>
 <% @travel.travel_details.each do |travel_detail| %>
@@ -14,3 +18,63 @@
   <%= travel_detail.content %>
 <% end %>
 <p><%= link_to "投稿一覧", travels_path %></p>
+<style>
+  #map {
+    height: 400px;
+    width: 400px;
+  }
+</style>
+<script>
+  var geocoder
+  var map
+  
+  function initMap() {
+    if (geocoder) {
+    } else {
+      geocoder = new google.maps.Geocoder()
+          let inputAddress = document.getElementById('travel-position').innerText
+  
+    geocoder.geocode({
+      'address': inputAddress
+    }, function (results, status) {
+      if (status == 'OK') {
+        let position = {
+          lat: results[0].geometry.location.lat(),
+          lng: results[0].geometry.location.lng()
+        }
+  
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: position,
+          zoom: 12,
+        });
+  
+        marker = new google.maps.Marker({
+          position: position,
+          map: map
+        });
+      } else {
+        alert('該当する結果がありませんでした：' + status);
+      }
+    });
+    }
+  }
+  
+  function codeAddress() {
+    var inputAddress = document.getElementById('address').value
+    geocoder.geocode({
+      'address': inputAddress
+    }, function (results, status) {
+      if (status == 'OK') {
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+  
+        });
+      } else {
+        alert('該当する結果がありませんでした：' + status);
+      }
+    });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:map][:api] %>&callback=initMap" async defer></script>
