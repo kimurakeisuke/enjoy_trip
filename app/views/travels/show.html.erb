@@ -1,11 +1,16 @@
 <h1>投稿詳細</h1>
+<p>国名</p>
 <p><%= @travel.country %></p>
+<p>都市</p>
 <p><%= @travel.location %></p>
+<p>旅行プラン</p>
 <p><%= @travel.travel_plan %></p>
 <% @travel.travel_details.each do |travel_detail| %>
   <% if travel_detail.image? %>
+    <p>写真</p>
     <p><%= image_tag travel_detail.image.url, width: 320 %></p>
   <% end %>
+  <p>コメント</p>
   <%= travel_detail.content %>
 <% end %>
 <p><%= link_to "投稿一覧", travels_path %></p>
