@@ -14,7 +14,7 @@
         <th scope="row"><%= i %></th>
         <td><%= travel.country %></td>
         <td>
-          <%= link_to "詳細", travel %>
+          <%= link_to "詳細", travel, data: { turbolinks: false } %>
           <%= link_to "編集", edit_travel_path(travel) %>
           <%= link_to "削除", travel, method: :delete, data: { confirm: "削除しますか?" } %>
         </td>

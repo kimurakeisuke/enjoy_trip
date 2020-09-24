@@ -27,35 +27,36 @@
 <script>
   var geocoder
   var map
+  var isGeocoder = false
   
   function initMap() {
-    if (geocoder) {
-    } else {
+    if (!isGeocoder) {
+      isGeocoder = true
       geocoder = new google.maps.Geocoder()
-          let inputAddress = document.getElementById('travel-position').innerText
+      let inputAddress = document.getElementById('travel-position').innerText
   
-    geocoder.geocode({
-      'address': inputAddress
-    }, function (results, status) {
-      if (status == 'OK') {
-        let position = {
-          lat: results[0].geometry.location.lat(),
-          lng: results[0].geometry.location.lng()
+      geocoder.geocode({
+        'address': inputAddress
+      }, function (results, status) {
+        if (status == 'OK') {
+          let position = {
+            lat: results[0].geometry.location.lat(),
+            lng: results[0].geometry.location.lng()
+          }
+  
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: position,
+            zoom: 12,
+          });
+  
+          marker = new google.maps.Marker({
+            position: position,
+            map: map
+          });
+        } else {
+          alert('該当する結果がありませんでした：' + status);
         }
-  
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: position,
-          zoom: 12,
-        });
-  
-        marker = new google.maps.Marker({
-          position: position,
-          map: map
-        });
-      } else {
-        alert('該当する結果がありませんでした：' + status);
-      }
-    });
+      });
     }
   }
   
