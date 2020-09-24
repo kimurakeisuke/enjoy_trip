@@ -4,6 +4,7 @@ class TravelsController < ApplicationController
 
   def index
     @travels = Travel.order(:id)
+    # @travels = Travel.all.includes(:user).recent
   end
 
   def new

@@ -3,19 +3,32 @@
 <input id="address" type="textbox" value="">
 <input type="button" value="検索" onclick="codeAddress()">
 <div id='map'></div>
-<p>国名</p>
+<p>【国名】</p>
 <p><%= @travel.country %></p>
-<p>都市</p>
+<p>【都市】</p>
 <p id="travel-position"><%= @travel.location %></p>
-<p>旅行プラン</p>
+<p>【旅行プラン】</p>
 <p><%= @travel.travel_plan %></p>
 <% @travel.travel_details.each do |travel_detail| %>
   <% if travel_detail.image? %>
-    <p>写真</p>
+    <p>【写真】</p>
     <p><%= image_tag travel_detail.image.url, width: 320 %></p>
   <% end %>
-  <p>コメント</p>
+  <p>【コメント】</p>
   <%= travel_detail.content %>
+<% end %>
+<p>
+  <% if @travel.favorited_by?(current_user) %>
+    <%= render "favorite", travel: @travel %>
+  <% else %>
+    <%= render "disfavorite", travel: @travel %>
+  <% end %>
+</p>
+<% if current_user.id == @travel.user.id %>
+  <p>
+    <%= link_to "編集", edit_travel_path(@travel) %>
+    <%= link_to "削除", travel_path(@travel), method: :delete, data: { confirm: "削除しますか?" } %>
+  </p>
 <% end %>
 <p><%= link_to "投稿一覧", travels_path %></p>
 <style>
