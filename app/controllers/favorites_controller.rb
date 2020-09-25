@@ -1,11 +1,11 @@
 class FavoritesController < ApplicationController
   def create
-    current_user.favorites.create!(travel_id: params[:travel_id])
-    redirect_back(fallback_location: root_path)
+    @travel = Travel.find(params[:travel_id])
+    current_user.favorites.create!(travel_id: @travel.id)
   end
 
   def destroy
-    current_user.favorites.find_by(travel_id: params[:travel_id]).destroy!
-    redirect_back(fallback_location: root_path)
+    @travel = Travel.find(params[:travel_id])
+    current_user.favorites.find_by(travel_id: @travel.id).destroy!
   end
 end

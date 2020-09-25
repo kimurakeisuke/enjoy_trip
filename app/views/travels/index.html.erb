@@ -1,25 +1,21 @@
+<hr>
 <h1>投稿一覧</h1>
-<%# <%= render @travels %>
-<table>
-  <thead>
-    <tr>
-      <th scope="col">No.</th>
-      <th scope="col">タイトル</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @travels.each.with_index(1) do |travel, i| %>
-      <tr>
-        <th scope="row"><%= i %></th>
-        <td><%= travel.country %></td>
-        <td>
-          <%= link_to "詳細", travel, data: { turbolinks: false } %>
-          <%= link_to "編集", edit_travel_path(travel) %>
-          <%= link_to "削除", travel, method: :delete, data: { confirm: "削除しますか?" } %>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-</tbody>
-</table>
+<% @travels.each.with_index(1) do |travel, i| %>
+  <p>No. <%= i %></p>
+  <p>タイトル: <%= travel.country %></p>
+  <p id="travel-<%= travel.id %>">
+    <% if @favorited_travel_ids.include?(travel.id) %>
+      <%= render "favorite", travel: travel %>
+    <% else %>
+      <%= render "disfavorite", travel: travel %>
+    <% end %>
+  </p>
+  <p>
+    <%= link_to "詳細", travel %>
+    <% if current_user.id == travel.user.id %>
+      <%= link_to "編集", edit_travel_path(travel) %>
+      <%= link_to "削除", travel_path(travel),method: :delete, data: { confirm: "削除しますか?" } %>
+    <% end %>
+  </p>
+<% end %>
+<hr>

@@ -17,7 +17,7 @@
   <p>【コメント】</p>
   <%= travel_detail.content %>
 <% end %>
-<p>
+<p id="travel-<%= @travel.id %>">
   <% if @travel.favorited_by?(current_user) %>
     <%= render "favorite", travel: @travel %>
   <% else %>
@@ -71,24 +71,6 @@
         }
       });
     }
-  }
-  
-  function codeAddress() {
-    var inputAddress = document.getElementById('address').value
-    geocoder.geocode({
-      'address': inputAddress
-    }, function (results, status) {
-      if (status == 'OK') {
-        map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
-  
-        });
-      } else {
-        alert('該当する結果がありませんでした：' + status);
-      }
-    });
   }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:map][:api] %>&callback=initMap" async defer></script>
