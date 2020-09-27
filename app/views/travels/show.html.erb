@@ -1,20 +1,20 @@
 <h1>投稿詳細</h1>
 <h2>map</h2>
-<input id="address" type="textbox" value="">
-<input type="button" value="検索" onclick="codeAddress()">
+<%# <input id="address" type="textbox" value="">
+<input type="button" value="検索" onclick="codeAddress()"> %>
 <div id='map'></div>
-<p>【国名】</p>
-<p><%= @travel.country %></p>
-<p>【都市】</p>
-<p id="travel-position"><%= @travel.location %></p>
-<p>【旅行プラン】</p>
+<h4>【国名】</h4>
+<p id="travel-country"><%= @travel.country %></p>
+<h4>【都市】</h4>
+<p id="travel-location"><%= @travel.location %></p>
+<h4>【旅行プラン】</h4>
 <p><%= @travel.travel_plan %></p>
 <% @travel.travel_details.each do |travel_detail| %>
   <% if travel_detail.image? %>
-    <p>【写真】</p>
+    <h4>【写真】</h4>
     <p><%= image_tag travel_detail.image.url, width: 320 %></p>
   <% end %>
-  <p>【コメント】</p>
+  <h4>【コメント】</h4>
   <%= travel_detail.content %>
 <% end %>
 <p id="travel-<%= @travel.id %>">
@@ -46,24 +46,25 @@
     if (!isGeocoder) {
       isGeocoder = true
       geocoder = new google.maps.Geocoder()
-      let inputAddress = document.getElementById('travel-position').innerText
+      let country = document.getElementById('travel-country').innerText
+      let location = document.getElementById('travel-location').innerText
   
       geocoder.geocode({
-        'address': inputAddress
+        'address': `${country} ${location}`
       }, function (results, status) {
         if (status == 'OK') {
-          let position = {
+          let coordinates = {
             lat: results[0].geometry.location.lat(),
             lng: results[0].geometry.location.lng()
           }
   
           map = new google.maps.Map(document.getElementById('map'), {
-            center: position,
+            center: coordinates,
             zoom: 12,
           });
   
           marker = new google.maps.Marker({
-            position: position,
+            position: coordinates,
             map: map
           });
         } else {

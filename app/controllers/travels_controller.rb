@@ -37,10 +37,10 @@ class TravelsController < ApplicationController
   private
 
   def set_travel
-    @travel = Travel.find(params[:id])
+    @travel = current_user.travels.find(params[:id])
   end
 
   def travel_params
-    params.require(:travel).permit(:country, :location, :travel_plan, travel_details_attributes: [:image, :content, :_destroy])
+    params.require(:travel).permit(:country, :location, :travel_plan, travel_details_attributes: [:id, :image, :content, :_destroy])
   end
 end
