@@ -5,8 +5,10 @@
 <div id='map'></div>
 <h4>【国名】</h4>
 <p id="travel-country"><%= @travel.country %></p>
-<h4>【場所】</h4>
+<h4>【地域】</h4>
 <p id="travel-region"><%= @travel.region %></p>
+<h4>【都市】</h4>
+<p id="travel-city"><%= @travel.city %></p>
 <h4>【旅行プラン】</h4>
 <p><%= @travel.travel_plan %></p>
 <% @travel.travel_details.each do |travel_detail| %>
@@ -46,11 +48,14 @@
     if (!isGeocoder) {
       isGeocoder = true
       geocoder = new google.maps.Geocoder()
+  
+  
       let country = document.getElementById('travel-country').innerText
       let region = document.getElementById('travel-region').innerText
+      let city = document.getElementById('travel-city').innerText
   
       geocoder.geocode({
-        'address': `${country} ${region}`
+        'address': `${country} ${region} ${city}`
       }, function (results, status) {
         if (status == 'OK') {
           let coordinates = {
