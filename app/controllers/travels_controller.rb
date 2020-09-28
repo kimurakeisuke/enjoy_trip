@@ -19,6 +19,7 @@ class TravelsController < ApplicationController
 
   def show
     @travel = Travel.find(params[:id])
+    binding.pry
   end
 
   def edit
