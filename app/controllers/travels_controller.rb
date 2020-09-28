@@ -13,13 +13,17 @@ class TravelsController < ApplicationController
   end
 
   def create
-    travel = current_user.travels.create!(travel_params)
+    travel = current_user.travels.new(travel_params)
+    search_words = "#{travel_params[:country]} #{travel_params[:location]}"
+    results = Geocoder.search(search_words)
+    travel.latitude = results.first.latitude
+    travel.longitude = results.first.longitude
+    travel.save!
     redirect_to travel
   end
 
   def show
     @travel = Travel.find(params[:id])
-    binding.pry
   end
 
   def edit
