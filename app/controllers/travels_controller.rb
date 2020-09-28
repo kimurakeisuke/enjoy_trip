@@ -14,7 +14,7 @@ class TravelsController < ApplicationController
 
   def create
     travel = current_user.travels.new(travel_params)
-    search_words = "#{travel_params[:country]} #{travel_params[:location]}"
+    search_words = "#{travel_params[:country]} #{travel_params[:region]}"
     results = Geocoder.search(search_words)
     travel.latitude = results.first.latitude
     travel.longitude = results.first.longitude
@@ -46,6 +46,6 @@ class TravelsController < ApplicationController
   end
 
   def travel_params
-    params.require(:travel).permit(:country, :location, :travel_plan, travel_details_attributes: [:id, :image, :content, :_destroy])
+    params.require(:travel).permit(:country, :region, :travel_plan, travel_details_attributes: [:id, :image, :content, :_destroy])
   end
 end
