@@ -40,43 +40,20 @@
   }
 </style>
 <script>
-  var geocoder
-  var map
-  var isGeocoder = false
+  let map
   
   function initMap() {
-    if (!isGeocoder) {
-      isGeocoder = true
       geocoder = new google.maps.Geocoder()
   
-  
-      let country = document.getElementById('travel-country').innerText
-      let region = document.getElementById('travel-region').innerText
-      let city = document.getElementById('travel-city').innerText
-  
-      geocoder.geocode({
-        'address': `${country} ${region} ${city}`
-      }, function (results, status) {
-        if (status == 'OK') {
-          let coordinates = {
-            lat: results[0].geometry.region.lat(),
-            lng: results[0].geometry.region.lng()
-          }
-  
           map = new google.maps.Map(document.getElementById('map'), {
-            center: coordinates,
+            center: {lat: <%= @travel.latitude %>, lng: <%= @travel.longitude %>},
             zoom: 12,
           });
   
           marker = new google.maps.Marker({
-            position: coordinates,
+            position: {lat: <%= @travel.latitude %>, lng: <%= @travel.longitude %>},
             map: map
           });
-        } else {
-          alert('該当する結果がありませんでした：' + status);
-        }
-      });
-    }
   }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:map][:api] %>&callback=initMap" async defer></script>

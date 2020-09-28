@@ -42,7 +42,8 @@ class TravelsController < ApplicationController
   private
 
   def set_travel
-    @travel = current_user.travels.find(params[:id])
+    @travel = current_user.travels.find_by(id: params[:id])
+    # redirect_to root_path, alert: "権限がありません"
   end
 
   def travel_params
