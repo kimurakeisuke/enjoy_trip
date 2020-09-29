@@ -11,7 +11,7 @@
 <p id="travel-city"><%= @travel.city %></p>
 <h4>【旅行プラン】</h4>
 <p><%= @travel.travel_plan %></p>
-<% @travel.travel_details.each do |travel_detail| %>
+<% @travel_details.each do |travel_detail| %>
   <% if travel_detail.image? %>
     <h4>【写真】</h4>
     <p><%= image_tag travel_detail.image.url, width: 320 %></p>

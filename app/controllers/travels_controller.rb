@@ -19,6 +19,7 @@ class TravelsController < ApplicationController
 
   def show
     @travel = Travel.find(params[:id])
+    @travel_details = @travel.travel_details.order(:id)
   end
 
   def edit

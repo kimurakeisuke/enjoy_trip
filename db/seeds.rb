@@ -26,4 +26,3 @@ travel1.save!
 travel2.save!
 
 puts "初期データの投入に成功しました。"
-
