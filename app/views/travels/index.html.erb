@@ -1,23 +1,26 @@
 <hr>
 <h1>投稿一覧</h1>
 <% @travels.each.with_index(1) do |travel, i| %>
+  <%# binding.pry%>
+  <hr>
+  <p><%= image_tag travel.travel_details.order(:id).first.image.url, width: 320 %></p>
   <p>No. <%= i %></p>
   <p>国名: <%= travel.country %></p>
   <p>地域: <%= travel.region %></p>
-  <p>都市: <%= travel.city %></p>
-  <p id="travel-<%= travel.id %>">
-    <% if @favorited_travel_ids.include?(travel.id) %>
-      <%= render "favorite", travel: travel %>
-    <% else %>
-      <%= render "disfavorite", travel: travel %>
-    <% end %>
-  </p>
-  <p>
-    <%= link_to "詳細", travel %>
-    <% if current_user.id == travel.user.id %>
-      <%= link_to "編集", edit_travel_path(travel) %>
-      <%= link_to "削除", travel_path(travel),method: :delete, data: { confirm: "削除しますか?" } %>
-    <% end %>
-  </p>
+  <%# <p>都市: <%= travel.city %></p>
+<p id="travel-<%= travel.id %>">
+  <% if @favorited_travel_ids.include?(travel.id) %>
+    <%= render "favorite", travel: travel %>
+  <% else %>
+    <%= render "disfavorite", travel: travel %>
+  <% end %>
+</p>
+<p>
+  <%= link_to "詳細", travel %>
+  <% if current_user.id == travel.user.id %>
+    <%= link_to "編集", edit_travel_path(travel) %>
+    <%= link_to "削除", travel_path(travel),method: :delete, data: { confirm: "削除しますか?" } %>
+  <% end %>
+</p>
 <% end %>
 <hr>
