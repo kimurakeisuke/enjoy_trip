@@ -30,6 +30,11 @@ class TravelsController < ApplicationController
   end
 
   def update
+    search_words = "#{travel_params[:country]} #{travel_params[:region]} #{travel_params[:city]}"
+    results = Geocoder.search(search_words)
+    # binding.pry
+    @travel.latitude = results.first.latitude
+    @travel.longitude = results.first.longitude
     @travel.update!(travel_params)
     redirect_to @travel
   end
@@ -43,7 +48,6 @@ class TravelsController < ApplicationController
 
   def set_travel
     @travel = current_user.travels.find_by(id: params[:id])
-    # redirect_to root_path, alert: "権限がありません"
   end
 
   def travel_params
