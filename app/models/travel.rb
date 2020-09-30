@@ -16,8 +16,11 @@ class Travel < ApplicationRecord
 
   def search_lat_and_lng
     search_words = "#{self.country} #{self.region} #{self.city}"
-    results = Geocoder.search(search_words)
-    self.latitude = results.first.latitude
-    self.longitude = results.first.longitude
+    geocoder = Geocoder.search(search_words).first
+    self.latitude = geocoder.latitude
+    self.longitude = geocoder.longitude
+    self.country_code = geocoder.country_code
+    country = ISO3166::Country.new(self.country_code)
+    self.continent = country.continent
   end
 end
