@@ -19,8 +19,18 @@ class Travel < ApplicationRecord
     geocoder = Geocoder.search(search_words).first
     self.latitude = geocoder.latitude
     self.longitude = geocoder.longitude
+
     self.country_code = geocoder.country_code
     country = ISO3166::Country.new(self.country_code)
     self.continent = country.continent
+
+    # 日本の場合は、地域区分 area を定義
+    if self.country_code == "JP"
+      state = geocoder.state
+      pref = JpPrefecture::Prefecture.find name: state
+      self.area = pref.area
+    else
+      self.area = nil
+    end
   end
 end
