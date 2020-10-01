@@ -20,6 +20,7 @@ class Travel < ApplicationRecord
     self.latitude = geocoder.latitude
     self.longitude = geocoder.longitude
 
+    # 海外の場合は、こちらが動く
     self.country_code = geocoder.country_code
     country = ISO3166::Country.new(self.country_code)
     self.continent = country.continent
