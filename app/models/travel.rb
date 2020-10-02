@@ -6,6 +6,7 @@ class Travel < ApplicationRecord
   accepts_nested_attributes_for :travel_details, allow_destroy: true
 
   has_many :favorites, dependent: :destroy
+  # travel.favorited_users で travel を「いいね!」しているユーザー一覧が取得できるようになる
   has_many :favorited_users, through: :favorites, source: :user
 
   before_save :search_lat_and_lng

@@ -1,20 +1,25 @@
 <header>
-  <%# <% binding.pry %>
   <nav class="navbar navbar-expand navbar-light navbar-header">
     <ul class="navbar-nav mr-auto">
       <%= link_to "好きな旅行先投稿アプリ", "#", class: 'navbar-brand' %>
     </ul>
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="far fa-user-circle"></i>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+        <%= link_to 'アカウント編集', edit_user_registration_path,class: 'dropdown-item' %>
+      </div>
+    </div>
     <div id="Navber">
       <ul class="navbar-nav">
-        <% if user_signed_in? %>
-          <% if request.path != "/users/edit"%>
-            <li class="nav-item active">
-              <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link' %>
-            </li>
+        <li class="navbar-nav active">
+          <%= link_to href="#", class: 'nav-link' do %>
+            <button type="button" class="btn btn-primary"><i class="fas fa-search"></i></button>
           <% end %>
-          <li class="nav-item active nav-account">
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-          </li>
+        </li>
+        <% if user_signed_in? %>
         <% else %>
           <% if request.path == "/users/sign_in" %>
             <li class="nav-item active">

@@ -17,14 +17,16 @@
   <h4>【コメント】</h4>
   <%= travel_detail.content %>
 <% end %>
-<p id="travel-<%= @travel.id %>">
-  <% if @travel.favorited_by?(current_user) %>
-    <%= render "favorite", travel: @travel %>
-  <% else %>
-    <%= render "disfavorite", travel: @travel %>
-  <% end %>
-</p>
-<% if current_user.id == @travel.user.id %>
+<% if user_signed_in? %>
+  <p id="travel-<%= @travel.id %>">
+    <% if @travel.favorited_by?(current_user) %>
+      <%= render "favorite", travel: @travel %>
+    <% else %>
+      <%= render "disfavorite", travel: @travel %>
+    <% end %>
+  </p>
+<% end %>
+<% if user_signed_in? && current_user.id == @travel.user.id %>
   <p>
     <%= link_to "編集", edit_travel_path(@travel) %>
     <%= link_to "削除", travel_path(@travel), method: :delete, data: { confirm: "削除しますか?" } %>

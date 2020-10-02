@@ -1,10 +1,13 @@
 class TravelsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :set_travel, only: %i[show edit update destroy]
+  before_action :set_travel, only: %i[edit update destroy]
 
   def index
     @travels = Travel.order(:id)
-    @favorited_travel_ids = current_user.favorites.pluck(:travel_id)
+    # ユーザーがサインインしていたらお気に入り機能が使えるようになる。
+    if user_signed_in?
+      @favorited_travel_ids = current_user.favorites.pluck(:travel_id)
+    end
   end
 
   def new
