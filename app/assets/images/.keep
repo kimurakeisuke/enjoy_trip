@@ -1,0 +1,4 @@
+<%= image_tag "worldmap.jpg" %>
+<img src="/assets/worldmap.jpg" alt="worldmap" />
+<%= image_tag "japanmap.jpg %>
+<img src="/assets/japanmap.jpg" ale="japanmap" />
