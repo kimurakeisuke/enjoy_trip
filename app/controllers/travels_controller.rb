@@ -3,7 +3,13 @@ class TravelsController < ApplicationController
   before_action :set_travel, only: %i[edit update destroy]
 
   def index
-    @travels = Travel.order(:id)
+    if params[:continent].present?
+      @travels = Travel.where(continent: params[:continent]).order(:id)
+    elsif params[:area].present?
+      @travels = Travel.where(area: params[:area]).order(:id)
+    else
+      @travels = Travel.order(:id)
+    end
     # ユーザーがサインインしていたらお気に入り機能が使えるようになる。
     if user_signed_in?
       @favorited_travel_ids = current_user.favorites.pluck(:travel_id)

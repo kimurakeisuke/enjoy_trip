@@ -1,20 +1,18 @@
+<hr>
 <h1>投稿詳細</h1>
-<h2>map</h2>
-<%# <input id="address" type="textbox" value="">
-<input type="button" value="検索" onclick="codeAddress()"> %>
 <div id='map'></div>
-<h4>【国名】</h4>
+<h4>国名</h4>
 <p id="travel-country"><%= @travel.country %></p>
-<h4>【地域】</h4>
+<h4>地域</h4>
 <p id="travel-region"><%= @travel.region %></p>
-<h4>【都市】</h4>
+<h4>都市</h4>
 <p id="travel-city"><%= @travel.city %></p>
-<h4>【旅行プラン】</h4>
+<h4>旅行プラン</h4>
 <p><%= @travel.travel_plan %></p>
 <% @travel_details.each do |travel_detail| %>
-  <h4>【写真】</h4>
+  <%# <h4>写真</h4> %>
   <p><%= image_tag travel_detail.image.url, width: 320 %></p>
-  <h4>【コメント】</h4>
+  <%# <h4>コメント</h4> %>
   <%= travel_detail.content %>
 <% end %>
 <% if user_signed_in? %>
@@ -33,6 +31,7 @@
   </p>
 <% end %>
 <p><%= link_to "投稿一覧", travels_path %></p>
+<hr>
 <style>
   #map {
     height: 400px;
@@ -57,3 +56,4 @@
   }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:map][:api] %>&callback=initMap" async defer></script>
+

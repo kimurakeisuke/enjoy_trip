@@ -1,9 +1,8 @@
-<hr>
-<h1>投稿一覧</h1>
+<hr> 
+<h1>旅行日記</h1>
 <% @travels.each.with_index(1) do |travel, i| %>
-  <%# binding.pry%>
   <hr>
-  <p><%= image_tag travel.travel_details.order(:id).first.image.url, width: 320 %></p>
+  <p><%= image_tag travel.travel_details.order(:id).first.image.url, width: 300 %></p>
   <p>No. <%= i %></p>
   <p>国名: <%= travel.country %></p>
   <p>地域: <%= travel.region %></p>
