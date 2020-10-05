@@ -4,6 +4,7 @@ class TravelsController < ApplicationController
 
   def index
     if params[:continent].present?
+      # where 与えられた条件にマッチするレコードを全て返す
       @travels = Travel.where(continent: params[:continent]).order(:id)
     elsif params[:area].present?
       @travels = Travel.where(area: params[:area]).order(:id)
