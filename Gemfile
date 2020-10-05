@@ -36,6 +36,8 @@ gem 'devise-i18n'
 gem 'devise-bootstrap-views', '~> 1.0'
 
 gem 'carrierwave', '~> 2.0'
+gem 'mini_magick'
+
 gem "cocoon"
 
 gem "geocoder"
