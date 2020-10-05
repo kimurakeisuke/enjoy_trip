@@ -1,0 +1,230 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap/scss/bootstrap";
+
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import "@fortawesome/fontawesome-free/scss/regular";
+@import "@fortawesome/fontawesome-free/scss/solid";
+@import "@fortawesome/fontawesome-free/scss/brands";
+// ログイン画面
+
+.container-login {
+  @extend .container-fluid;
+  max-width: 576px;
+  padding: 2rem;
+}
+
+// 「ログインしました」などのフラッシュ用スタイル
+
+.alert-notice {
+  @extend .alert-info;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+.navbar-header {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.nav-link {
+  text-align: right;
+}
+
+.forgot-passward {
+  font-size: 11px;
+  margin-top: 0.5rem;
+  // display: inline-block;
+}
+
+.nav-login {
+  // padding: 0.5em 1em;
+  // margin: 2em 0;
+  margin: -1px 10px;
+  font-weight: normal;
+  color: #6091d3;
+  background: #FFF;
+  border: solid 1px #6091d3;
+  border-radius: 30px;
+}
+
+.nav-new {
+  // padding: 0.5em 1em;
+  // margin: 2em 0;
+  margin: -1px 10px;
+  font-weight: normal;
+  color: #6091d3;
+  background: #FFF;
+  border: solid 1px #6091d3;
+  border-radius: 30px;
+}
+
+.text-brown {
+  opacity: 0.6;
+}
+
+.nav-account {
+  // padding: 0.5em 1em;
+  // margin: 2em 0;
+  margin: -1px 10px;
+  font-weight: normal;
+  color: #6091d3;
+  background: #FFF;
+  border: solid 1px #6091d3;
+  border-radius: 30px;
+}
+
+.map-image {
+  max-width: 100%;
+}
+
+.map-image-wrapper {
+  position: relative;
+}
+
+.map-area {
+  position: absolute;
+  display: block;
+  font-size: 25px;
+}
+
+.map-europe {
+  font-size: 20px;
+  top: 18%;
+  left: 12%;
+}
+
+.map-asia {
+  font-size: 20px;
+  top: 35%;
+  left: 35%;
+}
+
+.map-africa {
+  font-size: 20px;
+  bottom: 35%;
+  left: 8%;
+}
+
+.map-australia {
+  font-size: 20px;
+  bottom: 31%;
+  left: 40%;
+}
+
+.map-northamerica {
+  font-size: 20px;
+  top: 30%;
+  right: 18%;
+}
+
+.map-southamerica {
+  font-size: 20px;
+  bottom: 33%;
+  right: 2%;
+}
+
+.map-hokkaido {
+  font-size: 20px;
+  top: 25%;
+  right: 11%;
+}
+
+.map-tohoku {
+  font-size: 20px;
+  top: 45%;
+  right: 27%;
+}
+
+.map-kanto {
+  font-size: 20px;
+  bottom: 33%;
+  right: 35%;
+}
+
+.map-chubu {
+  font-size: 20px;
+  top: 55%;
+  right: 46%;
+}
+
+.map-kansai {
+  font-size: 20px;
+  bottom: 28%;
+  left: 38%;
+}
+
+.map-chugoku {
+  font-size: 20px;
+  bottom: 32%;
+  left: 23%;
+}
+
+.map-shikoku {
+  font-size: 20px;
+  bottom: 25%;
+  left: 24%;
+}
+
+.map-kyushu {
+  font-size: 20px;
+  bottom: 23%;
+  left: 8%;
+}
+
+.map-area a {
+  border: 1px solid #ccc;
+  background: #f1e767;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fdfbfb), to(#ebedee));
+  background: -webkit-linear-gradient(top, #fdfbfb 0%, #ebedee 100%);
+  background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
+  -webkit-box-shadow: inset 1px 1px 1px #fff;
+  box-shadow: inset 1px 1px 1px #fff;
+}
+
+.map-area:hover a {
+  background: -webkit-gradient(linear, left bottom, left top, from(#fdfbfb), to(#ebedee));
+  background: -webkit-linear-gradient(bottom, #fdfbfb 0%, #ebedee 100%);
+  background: linear-gradient(to top, #fdfbfb 0%, #ebedee 100%);
+}
+
+h1 {
+  position: relative;
+  display: inline-block;
+  padding: 0 55px;
+}
+
+h1:before, h1:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 45px;
+  height: 1px;
+  background-color: black;
+}
+
+h1:before {
+  left:0;
+}
+
+h1:after {
+  right: 0;
+}

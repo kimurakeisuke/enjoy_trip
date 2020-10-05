@@ -1,0 +1,60 @@
+<hr>
+<h1>投稿詳細</h1>
+<div id='map'></div>
+<p><%= l @travel.created_at, format: :short %></p>
+<h4>国名</h4>
+<p id="travel-country"><%= @travel.country %></p>
+<h4>地域</h4>
+<p id="travel-region"><%= @travel.region %></p>
+<h4>都市</h4>
+<p id="travel-city"><%= @travel.city %></p>
+<h4>旅行プラン</h4>
+<p><%= @travel.travel_plan %></p>
+<% @travel_details.each do |travel_detail| %>
+  <%# <h4>写真</h4> %>
+  <p><%= image_tag travel_detail.image.url, width: 320 %></p>
+  <%# <h4>コメント</h4> %>
+  <%= travel_detail.content %>
+<% end %>
+<% if user_signed_in? %>
+  <p id="travel-<%= @travel.id %>">
+    <% if @travel.favorited_by?(current_user) %>
+      <%= render "favorite", travel: @travel %>
+    <% else %>
+      <%= render "disfavorite", travel: @travel %>
+    <% end %>
+  </p>
+<% end %>
+<% if user_signed_in? && current_user.id == @travel.user.id %>
+  <p>
+    <%= link_to "編集", edit_travel_path(@travel) %>
+    <%= link_to "削除", travel_path(@travel), method: :delete, data: { confirm: "削除しますか?" } %>
+  </p>
+<% end %>
+<p><%= link_to "投稿一覧", travels_path %></p>
+<hr>
+<style>
+  #map {
+    height: 400px;
+    width: 400px;
+  }
+</style>
+<script>
+  let map
+  
+  function initMap() {
+      geocoder = new google.maps.Geocoder()
+  
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: <%= @travel.latitude %>, lng: <%= @travel.longitude %>},
+            zoom: 12,
+          });
+  
+          marker = new google.maps.Marker({
+            position: {lat: <%= @travel.latitude %>, lng: <%= @travel.longitude %>},
+            map: map
+          });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:map][:api] %>&callback=initMap" async defer></script>
+

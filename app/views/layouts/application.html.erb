@@ -4,12 +4,13 @@
     <title>OriginalTravelApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
   </head>
-
   <body>
+    <%= render 'shared/header' %>
+    <%= link_to "投稿一覧", travels_path %> <%= link_to "新規投稿", new_travel_path %>
     <%= yield %>
   </body>
 </html>

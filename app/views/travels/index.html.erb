@@ -1,0 +1,27 @@
+<hr> 
+<h1>みんなの旅行日記</h1>
+<% @travels.each.with_index(1) do |travel, i| %>
+  <hr>
+  <p><%= image_tag travel.travel_details.order(:id).first.image.url, width: 300 %></p>
+  <p>No. <%= i %></p>
+  <p><%= l travel.created_at, format: :short %></p>
+  <p>国名: <%= travel.country %></p>
+  <p>地域: <%= travel.region %></p>
+<% if user_signed_in? %>
+  <p id="travel-<%= travel.id %>">
+    <% if @favorited_travel_ids.include?(travel.id) %>
+      <%= render "favorite", travel: travel %>
+    <% else %>
+      <%= render "disfavorite", travel: travel %>
+    <% end %>
+  </p>
+<% end %>
+<p>
+  <%= link_to "詳細", travel %>
+  <% if user_signed_in? && current_user.id == travel.user.id %>
+    <%= link_to "編集", edit_travel_path(travel) %>
+    <%= link_to "削除", travel_path(travel),method: :delete, data: { confirm: "削除しますか?" } %>
+  <% end %>
+</p>
+<% end %>
+<hr>

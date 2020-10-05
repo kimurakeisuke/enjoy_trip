@@ -1,0 +1,130 @@
+<header>
+  <nav class="navbar navbar-expand navbar-light navbar-header">
+    <ul class="navbar-nav mr-auto">
+      <%= link_to "好きな旅行先投稿アプリ", "#", class: 'navbar-brand' %>
+    </ul>
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="far fa-user-circle"></i>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <% if user_signed_in? %>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+          <%= link_to 'アカウント編集', edit_user_registration_path,class: 'dropdown-item' %>
+        <% else %>
+          <%= link_to "新規登録", new_user_registration_path, class: 'dropdown-item' %>
+          <%= link_to "ログイン", new_user_session_path, class: 'dropdown-item' %>
+        <% end %>
+          <%#= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+          <%#= link_to 'アカウント編集', edit_user_registration_path,class: 'dropdown-item' %>
+      </div>
+    </div>
+    <div id="Navber">
+      <ul class="navbar-nav">
+        <li class="navbar-nav active">
+          <%= link_to href="#", class: 'nav-link' do %>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mapModal">
+              <i class="fas fa-search"></i>
+            </button>
+          <% end %>
+        </li>
+        <% if user_signed_in? %>
+        <% else %>
+          <% if request.path == "/users/sign_in" %>
+            <li class="nav-item active">
+              <span class="nav-link text-brown">
+                まだ会員でない方
+              </span>
+            </li>
+            <li class="nav-item active nav-new">
+              <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
+            </li>
+          <% elsif request.path == "/users/sign_up" %>
+            <li class="nav-item active ">
+              <span class="nav-link text-brown">
+                既に会員の方
+              </span>
+            </li>
+            <li class="nav-item active nav-login">
+              <%= link_to "ログイン", new_user_session_path, class: 'nav-link'%>
+            </li>
+          <% else %>
+            <%# <li class="nav-item active "> %>
+              <%# <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %> 
+            <%# </li> %>
+            <%# <li class="nav-item active"> %>
+              <%# <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %> 
+            <%# </li> %>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>
+<div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="mapModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mapModalLabel">エリアから探す</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>海外から探す></p>
+        <div class="map-image-wrapper">
+          <%= image_tag "world_map.jpg", class: "map-image" %>
+          <div class="map-area map-europe">
+            <%= link_to "ヨーロッパ", travels_path(continent: "Europe"), class: "map-area map-europe map-link active" %>
+          </div>
+          <div class="map-area map-asia">
+            <%= link_to "アジア", travels_path(continent: "Asia"), class: "map-area map-asia map-link active" %>
+          </div>
+          <div class="map-area map-africa">
+            <%= link_to "アフリカ", travels_path(continent: "Africa"), class: "map-area map-africa map-link active" %>
+          </div>
+          <div class="map-area map-australia">
+            <%= link_to "オセアニア", travels_path(continent: "Australia"), class: "map-area map-australia map-link active" %>
+          </div>
+          <div class="map-area map-northamerica">
+            <%= link_to "北米", travels_path(continent: "North America"), class: "map-area map-northamerica map-link active" %>
+          </div>
+          <div class="map-area map-southamerica">
+            <%= link_to "中南米", travels_path(continent: "South America"), class: "map-area map-southamerica map-link active" %>
+          </div>
+        </div>
+        <p>国内から探す></p>
+        <div class="map-image-wrapper">
+          <%= image_tag "japan_map.jpg", class: "map-image" %>
+          <div class="map-area map-hokkaido">
+            <%= link_to "北海道", travels_path(area: "北海道"), class: "map-area map-hokkaido map-link active" %>
+          </div>
+          <div class="map-area map-tohoku">
+            <%= link_to "東北", travels_path(area: "東北"), class: "map-area map-tohoku map-link active" %>
+          </div>
+          <div class="map-area map-kanto">
+            <%= link_to "関東", travels_path(area: "関東"), class: "map-area map-kanto map-link active" %>
+          </div>
+          <div class="map-area map-chubu">
+            <%= link_to "中部", travels_path(area: "中部"), class: "map-area map-chubu map-link active" %>
+          </div>
+          <div class="map-area map-kansai">
+            <%= link_to "関西", travels_path(area: "関西"), class: "map-area map-chubu map-link active" %>
+          </div>
+          <div class="map-area map-chugoku">
+            <%= link_to "中国", travels_path(area: "中国"), class: "map-area map-chugoku map-link active" %>
+          </div>
+          <div class="map-area map-shikoku">
+            <%= link_to "四国", travels_path(area: "四国"), class: "map-area map-shikoku map-link active" %>
+          </div>
+          <div class="map-area map-kyushu">
+            <%= link_to "九州", travels_path(area: "九州"), class: "map-area map-kyushu map-link active" %>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+      </div>
+    </div>
+  </div>
+</div>
