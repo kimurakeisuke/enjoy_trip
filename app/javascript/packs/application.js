@@ -18,3 +18,16 @@ require("channels");
 require("bootstrap/dist/js/bootstrap");
 require("@nathanvda/cocoon");
 require("@fortawesome/fontawesome-free/js/all");
+require("./jquery.ezdz.min");
+
+document.addEventListener('DOMContentLoaded', () => {
+  $('input[type="file"]').each(function () {
+    const imageUrl = $(this).data('image-url')
+    $(this).ezdz()
+    $(this).ezdz('preview', imageUrl);
+  })
+
+  $('#travel-form').on('cocoon:after-insert', function (e, insertedItem, originalEvent) {
+    insertedItem.find('input[type="file"]').ezdz();
+  });
+});

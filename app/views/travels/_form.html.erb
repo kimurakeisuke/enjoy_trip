@@ -1,5 +1,5 @@
 
-<%= form_with model: @travel, local: true do |form| %>
+<%= form_with model: @travel, local: true, id: "travel-form" do |form| %>
   <p>
     <%= form.label :country %>
     <%= form.text_field :country %>
