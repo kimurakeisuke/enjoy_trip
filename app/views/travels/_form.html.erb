@@ -18,7 +18,8 @@
   </p>
   <p>
     <%= form.label :travel_details %>
-    <%= form.fields :travel_details do |travel_detail| %>
+    <%# model: @travel_detailsとしてあげることで@travel.travel_details.order(:id)の内容を取得できるようになったので表示の順番が正常になる%>
+    <%= form.fields :travel_details, model: @travel_details do |travel_detail| %>
       <% render "travel_detail_fields", f: travel_detail %>
     <% end %>
   </p>
