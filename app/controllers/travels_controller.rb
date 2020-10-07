@@ -33,6 +33,7 @@ class TravelsController < ApplicationController
   end
 
   def edit
+    @travel_details = @travel.travel_details.order(:id)
   end
 
   def update

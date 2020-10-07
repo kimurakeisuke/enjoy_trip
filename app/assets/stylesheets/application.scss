@@ -99,56 +99,62 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
   position: relative;
 }
 
-.map-area {
+a.map-area {
   position: absolute;
   display: block;
-  font-size: 25px;
+  font-size: 20px;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  background: #f1e767;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fdfbfb), to(#ebedee));
+  background: -webkit-linear-gradient(top, #fdfbfb 0%, #ebedee 100%);
+  background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
+  -webkit-box-shadow: inset 1px 1px 1px #fff;
+  box-shadow: inset 1px 1px 1px #fff;
+}
+
+a.map-area:hover {
+  background: -webkit-gradient(linear, left bottom, left top, from(#fdfbfb), to(#ebedee));
+  background: -webkit-linear-gradient(bottom, #fdfbfb 0%, #ebedee 100%);
+  background: linear-gradient(to top, #fdfbfb 0%, #ebedee 100%);
 }
 
 .map-europe {
-  font-size: 20px;
   top: 18%;
   left: 12%;
 }
 
 .map-asia {
-  font-size: 20px;
   top: 35%;
   left: 35%;
 }
 
 .map-africa {
-  font-size: 20px;
   bottom: 35%;
   left: 8%;
 }
 
 .map-australia {
-  font-size: 20px;
   bottom: 31%;
   left: 40%;
 }
 
 .map-northamerica {
-  font-size: 20px;
   top: 30%;
   right: 18%;
 }
 
 .map-southamerica {
-  font-size: 20px;
   bottom: 33%;
   right: 2%;
 }
 
 .map-hokkaido {
-  font-size: 20px;
   top: 25%;
   right: 11%;
 }
 
 .map-tohoku {
-  font-size: 20px;
   top: 45%;
   right: 27%;
 }
@@ -160,50 +166,45 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 }
 
 .map-chubu {
-  font-size: 20px;
   top: 55%;
   right: 46%;
 }
 
 .map-kansai {
-  font-size: 20px;
   bottom: 28%;
   left: 38%;
 }
 
 .map-chugoku {
-  font-size: 20px;
   bottom: 32%;
   left: 23%;
 }
 
 .map-shikoku {
-  font-size: 20px;
   bottom: 25%;
   left: 24%;
 }
 
 .map-kyushu {
-  font-size: 20px;
   bottom: 23%;
   left: 8%;
 }
 
-.map-area a {
-  border: 1px solid #ccc;
-  background: #f1e767;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fdfbfb), to(#ebedee));
-  background: -webkit-linear-gradient(top, #fdfbfb 0%, #ebedee 100%);
-  background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
-  -webkit-box-shadow: inset 1px 1px 1px #fff;
-  box-shadow: inset 1px 1px 1px #fff;
-}
+// .map-area a {
+//   border: 1px solid #ccc;
+//   background: #f1e767;
+//   background: -webkit-gradient(linear, left top, left bottom, from(#fdfbfb), to(#ebedee));
+//   background: -webkit-linear-gradient(top, #fdfbfb 0%, #ebedee 100%);
+//   background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
+//   -webkit-box-shadow: inset 1px 1px 1px #fff;
+//   box-shadow: inset 1px 1px 1px #fff;
+// }
 
-.map-area:hover a {
-  background: -webkit-gradient(linear, left bottom, left top, from(#fdfbfb), to(#ebedee));
-  background: -webkit-linear-gradient(bottom, #fdfbfb 0%, #ebedee 100%);
-  background: linear-gradient(to top, #fdfbfb 0%, #ebedee 100%);
-}
+// .map-area:hover a {
+//   background: -webkit-gradient(linear, left bottom, left top, from(#fdfbfb), to(#ebedee));
+//   background: -webkit-linear-gradient(bottom, #fdfbfb 0%, #ebedee 100%);
+//   background: linear-gradient(to top, #fdfbfb 0%, #ebedee 100%);
+// }
 
 h1 {
   position: relative;
@@ -211,7 +212,8 @@ h1 {
   padding: 0 55px;
 }
 
-h1:before, h1:after {
+h1:before,
+h1:after {
   content: '';
   position: absolute;
   top: 50%;
@@ -222,7 +224,7 @@ h1:before, h1:after {
 }
 
 h1:before {
-  left:0;
+  left: 0;
 }
 
 h1:after {

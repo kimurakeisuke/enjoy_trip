@@ -5,7 +5,7 @@
     </ul>
     <div class="dropdown">
       <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="far fa-user-circle"></i>
+        <i class="far fa-user-circle fa-lg"></i>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <% if user_signed_in? %>
@@ -24,7 +24,7 @@
         <li class="navbar-nav active">
           <%= link_to href="#", class: 'nav-link' do %>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mapModal">
-              <i class="fas fa-search"></i>
+              <i class="fas fa-search fa-lg"></i>
             </button>
           <% end %>
         </li>
@@ -75,50 +75,50 @@
         <div class="map-image-wrapper">
           <%= image_tag "world_map.jpg", class: "map-image" %>
           <div class="map-area map-europe">
-            <%= link_to "ヨーロッパ", travels_path(continent: "Europe"), class: "map-area map-europe map-link active" %>
+            <%= link_to "ヨーロッパ", travels_path(continent: "Europe"), class: "map-area map-europe" %>
           </div>
           <div class="map-area map-asia">
-            <%= link_to "アジア", travels_path(continent: "Asia"), class: "map-area map-asia map-link active" %>
+            <%= link_to "アジア", travels_path(continent: "Asia"), class: "map-area map-asia" %>
           </div>
           <div class="map-area map-africa">
-            <%= link_to "アフリカ", travels_path(continent: "Africa"), class: "map-area map-africa map-link active" %>
+            <%= link_to "アフリカ", travels_path(continent: "Africa"), class: "map-area map-africa" %>
           </div>
           <div class="map-area map-australia">
-            <%= link_to "オセアニア", travels_path(continent: "Australia"), class: "map-area map-australia map-link active" %>
+            <%= link_to "オセアニア", travels_path(continent: "Australia"), class: "map-area map-australia" %>
           </div>
           <div class="map-area map-northamerica">
-            <%= link_to "北米", travels_path(continent: "North America"), class: "map-area map-northamerica map-link active" %>
+            <%= link_to "北米", travels_path(continent: "North America"), class: "map-area map-northamerica" %>
           </div>
           <div class="map-area map-southamerica">
-            <%= link_to "中南米", travels_path(continent: "South America"), class: "map-area map-southamerica map-link active" %>
+            <%= link_to "中南米", travels_path(continent: "South America"), class: "map-area map-southamerica" %>
           </div>
         </div>
         <p>国内から探す></p>
         <div class="map-image-wrapper">
           <%= image_tag "japan_map.jpg", class: "map-image" %>
           <div class="map-area map-hokkaido">
-            <%= link_to "北海道", travels_path(area: "北海道"), class: "map-area map-hokkaido map-link active" %>
+            <%= link_to "北海道", travels_path(area: "北海道"), class: "map-area map-hokkaido" %>
           </div>
           <div class="map-area map-tohoku">
-            <%= link_to "東北", travels_path(area: "東北"), class: "map-area map-tohoku map-link active" %>
+            <%= link_to "東北", travels_path(area: "東北"), class: "map-area map-tohoku" %>
           </div>
           <div class="map-area map-kanto">
-            <%= link_to "関東", travels_path(area: "関東"), class: "map-area map-kanto map-link active" %>
+            <%= link_to "関東", travels_path(area: "関東"), class: "map-area map-kanto" %>
           </div>
           <div class="map-area map-chubu">
-            <%= link_to "中部", travels_path(area: "中部"), class: "map-area map-chubu map-link active" %>
+            <%= link_to "中部", travels_path(area: "中部"), class: "map-area map-chubu" %>
           </div>
           <div class="map-area map-kansai">
-            <%= link_to "関西", travels_path(area: "関西"), class: "map-area map-chubu map-link active" %>
+            <%= link_to "関西", travels_path(area: "関西"), class: "map-area map-kansai" %>
           </div>
           <div class="map-area map-chugoku">
-            <%= link_to "中国", travels_path(area: "中国"), class: "map-area map-chugoku map-link active" %>
+            <%= link_to "中国", travels_path(area: "中国"), class: "map-area map-chugoku" %>
           </div>
           <div class="map-area map-shikoku">
-            <%= link_to "四国", travels_path(area: "四国"), class: "map-area map-shikoku map-link active" %>
+            <%= link_to "四国", travels_path(area: "四国"), class: "map-area map-shikoku" %>
           </div>
           <div class="map-area map-kyushu">
-            <%= link_to "九州", travels_path(area: "九州"), class: "map-area map-kyushu map-link active" %>
+            <%= link_to "九州", travels_path(area: "九州"), class: "map-area map-kyushu" %>
           </div>
         </div>
       </div>
