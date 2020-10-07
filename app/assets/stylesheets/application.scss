@@ -104,19 +104,20 @@ a.map-area {
   display: block;
   font-size: 20px;
   text-decoration: none;
-  border: 1px solid #ccc;
-  background: #f1e767;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fdfbfb), to(#ebedee));
-  background: -webkit-linear-gradient(top, #fdfbfb 0%, #ebedee 100%);
-  background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
-  -webkit-box-shadow: inset 1px 1px 1px #fff;
-  box-shadow: inset 1px 1px 1px #fff;
+  color: black;
+  padding: 3px 15px;
+  border: 2px solid #000;
+  border-radius: 20px;
+  background: #fff;
 }
 
-a.map-area:hover {
-  background: -webkit-gradient(linear, left bottom, left top, from(#fdfbfb), to(#ebedee));
-  background: -webkit-linear-gradient(bottom, #fdfbfb 0%, #ebedee 100%);
-  background: linear-gradient(to top, #fdfbfb 0%, #ebedee 100%);
+// a.map-area:hover {
+//   color: #fff;
+//   background: #000;
+// }
+
+.color {
+  color: red;
 }
 
 .map-europe {
@@ -155,39 +156,39 @@ a.map-area:hover {
 }
 
 .map-tohoku {
-  top: 45%;
+  top: 42%;
   right: 27%;
 }
 
 .map-kanto {
   font-size: 20px;
   bottom: 33%;
-  right: 35%;
+  right: 30%;
 }
 
 .map-chubu {
-  top: 55%;
-  right: 46%;
+  top: 51%;
+  right: 45%;
 }
 
 .map-kansai {
-  bottom: 28%;
-  left: 38%;
+  bottom: 25%;
+  left: 39%;
 }
 
 .map-chugoku {
-  bottom: 32%;
-  left: 23%;
+  bottom: 35%;
+  left: 19%;
 }
 
 .map-shikoku {
-  bottom: 25%;
-  left: 24%;
+  bottom: 20%;
+  left: 21%;
 }
 
 .map-kyushu {
-  bottom: 23%;
-  left: 8%;
+  bottom: 15%;
+  left: 4%;
 }
 
 // .map-area a {
