@@ -1,4 +1,9 @@
-<hr> 
+<% if params[:continent].present? %>
+<%= image_tag "#{params[:continent]}.jpg", style: "width: 100%" %>
+<% elsif params[:area].present? %>
+<%= image_tag "#{params[:area]}.jpg", style: "width: 100%" %>
+<% end %>
+<hr>
 <h1>みんなの旅行日記</h1>
 <% @travels.each.with_index(1) do |travel, i| %>
   <hr>

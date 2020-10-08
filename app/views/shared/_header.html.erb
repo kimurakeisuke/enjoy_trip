@@ -1,13 +1,13 @@
-<header>
-  <nav class="navbar navbar-expand navbar-light navbar-header">
+<header class="fixed-top bg-black">
+  <nav class="navbar navbar-expand navbar-dark navbar-header" >
     <ul class="navbar-nav mr-auto">
-      <%= link_to "好きな旅行先投稿アプリ", "#", class: 'navbar-brand' %>
+      <%= link_to "ENJOY TRIP", travels_path, class: 'navbar-brand' %>
     </ul>
     <div class="dropdown">
-      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="far fa-user-circle fa-lg"></i>
+      <button class="btn-header mr-4" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+        <i class="far fa-user-circle fa-2x text-white"></i>
       </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
         <% if user_signed_in? %>
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
           <%= link_to 'アカウント編集', edit_user_registration_path,class: 'dropdown-item' %>
@@ -23,8 +23,8 @@
       <ul class="navbar-nav">
         <li class="navbar-nav active">
           <%= link_to href="#", class: 'nav-link' do %>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mapModal">
-              <i class="fas fa-search fa-lg"></i>
+            <button type="button" class="btn-header" data-toggle="modal" data-target="#mapModal" >
+              <i class="fas fa-search fa-2x text-white"></i>
             </button>
           <% end %>
         </li>
@@ -65,93 +65,97 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="mapModalLabel">エリアから探す</h5>
+        <h5 class="modal-title modal-string" id="mapModalLabel">エリアから探す</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>海外から探す></p>
+        <div class="modal-string">
+        <p>海外から探す ></p>
+        </div>
         <div class="map-image-wrapper">
           <%= image_tag "world_map.jpg", class: "map-image" %>
           <div class="map-area map-europe">
             <%= link_to  travels_path(continent: "Europe"), class: "map-area map-europe" do %>
-              <i class="fas fa-map-marker-alt color"></i>ヨーロッパ
+              <i class="fas fa-map-marker-alt color"></i> ヨーロッパ
             <% end %>
           </div>
           <div class="map-area map-asia">
             <%= link_to travels_path(continent: "Asia"), class: "map-area map-asia" do %>
-            <i class="fas fa-map-marker-alt color"></i>アジア
+            <i class="fas fa-map-marker-alt color"></i> アジア
             <% end %>
           </div>
           <div class="map-area map-africa">
             <%= link_to travels_path(continent: "Africa"), class: "map-area map-africa" do %>
-            <i class="fas fa-map-marker-alt color"></i>アフリカ
+            <i class="fas fa-map-marker-alt color"></i> アフリカ
             <% end %>
           </div>
           <div class="map-area map-australia">
             <%= link_to travels_path(continent: "Australia"), class: "map-area map-australia" do %>
-            <i class="fas fa-map-marker-alt color"></i>オセアニア
+            <i class="fas fa-map-marker-alt color"></i> オセアニア
             <% end %>
           </div>
           <div class="map-area map-northamerica">
             <%= link_to travels_path(continent: "North America"), class: "map-area map-northamerica" do %>
-            <i class="fas fa-map-marker-alt color"></i>北米
+            <i class="fas fa-map-marker-alt color"></i> 北米
             <% end %>
           </div>
           <div class="map-area map-southamerica">
             <%= link_to travels_path(continent: "South America"), class: "map-area map-southamerica" do %>
-            <i class="fas fa-map-marker-alt color"></i>中南米
+            <i class="fas fa-map-marker-alt color"></i> 中南米
             <% end %>
           </div>
         </div>
-        <p>国内から探す></p>
+        <div class="modal-string">
+        <p>国内から探す ></p>
+        </div>
         <div class="map-image-wrapper">
           <%= image_tag "japan_map.jpg", class: "map-image" %>
           <div class="map-area map-hokkaido">
             <%= link_to travels_path(area: "北海道"), class: "map-area map-hokkaido" do %>
-            <i class="fas fa-map-marker-alt color"></i>北海道
+            <i class="fas fa-map-marker-alt color"></i> 北海道
             <% end %>
           </div>
           <div class="map-area map-tohoku">
             <%= link_to travels_path(area: "東北"), class: "map-area map-tohoku" do %>
-            <i class="fas fa-map-marker-alt color"></i>東北
+            <i class="fas fa-map-marker-alt color"></i> 東北
             <% end %>
           </div>
           <div class="map-area map-kanto">
             <%= link_to travels_path(area: "関東"), class: "map-area map-kanto" do %>
-            <i class="fas fa-map-marker-alt color"></i>関東
+            <i class="fas fa-map-marker-alt color"></i> 関東
             <% end %>
           </div>
           <div class="map-area map-chubu">
             <%= link_to travels_path(area: "中部"), class: "map-area map-chubu" do %>
-            <i class="fas fa-map-marker-alt color"></i>中部
+            <i class="fas fa-map-marker-alt color"></i> 中部
             <% end %>
           </div>
           <div class="map-area map-kansai">
             <%= link_to  travels_path(area: "関西"), class: "map-area map-kansai" do %>
-            <i class="fas fa-map-marker-alt color"></i>関西
+            <i class="fas fa-map-marker-alt color"></i> 関西
             <% end %>
           </div>
           <div class="map-area map-chugoku">
             <%= link_to  travels_path(area: "中国"), class: "map-area map-chugoku" do %>
-            <i class="fas fa-map-marker-alt color"></i>中国
+            <i class="fas fa-map-marker-alt color"></i> 中国
             <% end %>
           </div>
           <div class="map-area map-shikoku">
             <%= link_to travels_path(area: "四国"), class: "map-area map-shikoku" do %>
-            <i class="fas fa-map-marker-alt color"></i>四国
+            <i class="fas fa-map-marker-alt color"></i> 四国
             <% end %>
           </div>
           <div class="map-area map-kyushu">
             <%= link_to travels_path(area: "九州"), class: "map-area map-kyushu" do %>
-            <i class="fas fa-map-marker-alt color"></i>九州
+            <i class="fas fa-map-marker-alt color"></i> 九州
             <% end %>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+        <button type="button" class="btn-header" data-dismiss="modal">閉じる</button>
       </div>
     </div>
   </div>
