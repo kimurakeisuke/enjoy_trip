@@ -21,6 +21,67 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import "@fortawesome/fontawesome-free/scss/regular";
 @import "@fortawesome/fontawesome-free/scss/solid";
 @import "@fortawesome/fontawesome-free/scss/brands";
+
+button {
+  outline: none !important;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+body {
+  padding-top: 71px;
+}
+
+.bg-black {
+  background-color: black;
+}
+
+// ヘッダー
+
+.navbar-header {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.navbar-brand {
+  letter-spacing: 5px;
+  font-size: 30px;
+}
+
+
+.btn-header {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}
+
+// ヘッダーのリスト部分
+
+a.list {
+  display: inline-block;
+  position: relative;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  color: #000;
+  transition: .4s;
+}
+
+a.list:hover {
+  color: #2834e9;
+}
+
+a.list:before,
+a.list:after {
+  position: absolute;
+  top: 0;
+  content: '';
+  width: 8px;
+  height: 100%;
+  display: inline-block;
+}
+
 // ログイン画面
 
 .container-login {
@@ -40,7 +101,6 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 }
 
 .navbar-header {
-  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -91,6 +151,7 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
   border-radius: 30px;
 }
 
+// 世界地図と日本地図(modal)
 .map-image {
   max-width: 100%;
 }
@@ -102,13 +163,17 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 a.map-area {
   position: absolute;
   display: block;
-  font-size: 20px;
-  text-decoration: none;
+  font-size: 15px;
   color: black;
   padding: 3px 15px;
-  border: 2px solid #000;
+  border: 1px solid #000;
   border-radius: 20px;
   background: #fff;
+}
+
+.modal-string {
+  color: black;
+  font-weight: 600;
 }
 
 // a.map-area:hover {
@@ -137,7 +202,7 @@ a.map-area {
 
 .map-australia {
   bottom: 31%;
-  left: 40%;
+  left: 39%;
 }
 
 .map-northamerica {
@@ -147,28 +212,28 @@ a.map-area {
 
 .map-southamerica {
   bottom: 33%;
-  right: 2%;
+  right: 1%;
 }
 
 .map-hokkaido {
-  top: 25%;
-  right: 11%;
+  top: 23%;
+  right: 10%;
 }
 
 .map-tohoku {
   top: 42%;
-  right: 27%;
+  right: 24%;
 }
 
 .map-kanto {
   font-size: 20px;
   bottom: 33%;
-  right: 30%;
+  right: 24%;
 }
 
 .map-chubu {
-  top: 51%;
-  right: 45%;
+  top: 50%;
+  right: 43%;
 }
 
 .map-kansai {
@@ -178,56 +243,89 @@ a.map-area {
 
 .map-chugoku {
   bottom: 35%;
-  left: 19%;
+  left: 16%;
 }
 
 .map-shikoku {
   bottom: 20%;
-  left: 21%;
+  left: 19%;
 }
 
 .map-kyushu {
-  bottom: 15%;
-  left: 4%;
+  bottom: 13%;
+  left: 1%;
 }
 
-// .map-area a {
-//   border: 1px solid #ccc;
-//   background: #f1e767;
-//   background: -webkit-gradient(linear, left top, left bottom, from(#fdfbfb), to(#ebedee));
-//   background: -webkit-linear-gradient(top, #fdfbfb 0%, #ebedee 100%);
-//   background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
-//   -webkit-box-shadow: inset 1px 1px 1px #fff;
-//   box-shadow: inset 1px 1px 1px #fff;
+// h1 {
+//   position: relative;
+//   display: inline-block;
+//   padding: 0 55px;
 // }
 
-// .map-area:hover a {
-//   background: -webkit-gradient(linear, left bottom, left top, from(#fdfbfb), to(#ebedee));
-//   background: -webkit-linear-gradient(bottom, #fdfbfb 0%, #ebedee 100%);
-//   background: linear-gradient(to top, #fdfbfb 0%, #ebedee 100%);
+// h1:before,
+// h1:after {
+//   content: '';
+//   position: absolute;
+//   top: 50%;
+//   display: inline-block;
+//   width: 45px;
+//   height: 1px;
+//   background-color: black;
 // }
 
-h1 {
-  position: relative;
-  display: inline-block;
-  padding: 0 55px;
+// h1:before {
+//   left: 0;
+// }
+
+// h1:after {
+//   right: 0;
+// }
+
+// お気に入りボタン
+.favorite-btn {
+  width: 25px;
+  height: 30px;
+  font-size: 25px;
+  color: #fff;
+  margin-left: 10px;
+  padding: 3px 1px;
+  border: 2px solid rgb(230, 11, 11);
+  border-radius: 30px;
+  background: rgb(230, 11, 11);
 }
 
-h1:before,
-h1:after {
-  content: '';
+.disfavorite-btn {
+  width: 25px;
+  height: 30px;
+  font-size: 25px;
+  color: #808080;
+  margin-left: 10px;
+  padding: 3px 1px;
+  border: 2px solid rgb(236, 234, 234);
+  border-radius: 30px;
+  background: rgb(236, 234, 234);
+}
+
+// 詳細、編集、削除ボタン
+
+.detail {
   position: absolute;
-  top: 50%;
-  display: inline-block;
-  width: 45px;
-  height: 1px;
-  background-color: black;
+  display: block;
+  font-size: 20px;
+  color: black;
+  padding: 3px 15px;
+  background: #fff;
 }
 
-h1:before {
-  left: 0;
+.edit {
+  position: absolute;
+  display: block;
+  font-size: 20px;
+  color: black;
+  padding: 3px 15px;
+  background: #fff;
 }
 
-h1:after {
-  right: 0;
+.image {
+  float: left;
 }

@@ -1,2 +1,4 @@
-<%= link_to "★", travel_favorites_path(travel), method: :delete, remote: true %>
+<%= link_to travel_favorites_path(travel), method: :delete, remote: true do %>
+  <i class="fas fa-star favorite-btn "></i>
+<% end %>
 <%= travel.favorites_count %>
