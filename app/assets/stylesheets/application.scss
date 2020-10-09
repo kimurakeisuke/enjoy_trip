@@ -50,7 +50,6 @@ body {
   font-size: 30px;
 }
 
-
 .btn-header {
   border: none;
   padding: 0;
@@ -60,26 +59,9 @@ body {
 // ヘッダーのリスト部分
 
 a.list {
-  display: inline-block;
-  position: relative;
-  padding: 0.5em 1em;
+  padding-right: 2em;
   text-decoration: none;
-  color: #000;
-  transition: .4s;
-}
-
-a.list:hover {
-  color: #2834e9;
-}
-
-a.list:before,
-a.list:after {
-  position: absolute;
-  top: 0;
-  content: '';
-  width: 8px;
-  height: 100%;
-  display: inline-block;
+  color: rgb(27, 26, 26);
 }
 
 // ログイン画面
@@ -117,22 +99,20 @@ a.list:after {
 .nav-login {
   // padding: 0.5em 1em;
   // margin: 2em 0;
-  margin: -1px 10px;
+  margin: 0px 0px 7px;
   font-weight: normal;
-  color: #6091d3;
-  background: #FFF;
-  border: solid 1px #6091d3;
+  // background: #FFF;
+  border: solid 1px #FFF;
   border-radius: 30px;
 }
 
 .nav-new {
   // padding: 0.5em 1em;
   // margin: 2em 0;
-  margin: -1px 10px;
+  margin: 0px 0px 7px;
   font-weight: normal;
-  color: #6091d3;
-  background: #FFF;
-  border: solid 1px #6091d3;
+  // background: #FFF;
+  border: solid 1px#FFF;
   border-radius: 30px;
 }
 
@@ -152,6 +132,7 @@ a.list:after {
 }
 
 // 世界地図と日本地図(modal)
+
 .map-image {
   max-width: 100%;
 }
