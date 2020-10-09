@@ -1,0 +1,16 @@
+continent:
+  europe: ヨーロッパ
+  asia: アジア
+  africa: アフリカ
+  australia: オセアニア
+  north_america: 北米
+  south_america: 中南米
+area:
+  hokkaido: 北海道
+  tohoku: 東北
+  kanto: 関東
+  chubu: 中部
+  kansai: 関西
+  chugoku: 中国
+  shikoku: 四国
+  kyushu: 九州

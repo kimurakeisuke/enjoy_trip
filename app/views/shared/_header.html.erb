@@ -15,8 +15,6 @@
           <%= link_to "新規登録", new_user_registration_path, class: 'dropdown-item' %>
           <%= link_to "ログイン", new_user_session_path, class: 'dropdown-item' %>
         <% end %>
-          <%#= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
-          <%#= link_to 'アカウント編集', edit_user_registration_path,class: 'dropdown-item' %>
       </div>
     </div>
     <div id="Navber">
@@ -76,82 +74,27 @@
         </div>
         <div class="map-image-wrapper">
           <%= image_tag "world_map.jpg", class: "map-image" %>
-          <div class="map-area map-europe">
-            <%= link_to  travels_path(continent: "Europe"), class: "map-area map-europe" do %>
-              <i class="fas fa-map-marker-alt color"></i> ヨーロッパ
-            <% end %>
-          </div>
-          <div class="map-area map-asia">
-            <%= link_to travels_path(continent: "Asia"), class: "map-area map-asia" do %>
-            <i class="fas fa-map-marker-alt color"></i> アジア
-            <% end %>
-          </div>
-          <div class="map-area map-africa">
-            <%= link_to travels_path(continent: "Africa"), class: "map-area map-africa" do %>
-            <i class="fas fa-map-marker-alt color"></i> アフリカ
-            <% end %>
-          </div>
-          <div class="map-area map-australia">
-            <%= link_to travels_path(continent: "Australia"), class: "map-area map-australia" do %>
-            <i class="fas fa-map-marker-alt color"></i> オセアニア
-            <% end %>
-          </div>
-          <div class="map-area map-northamerica">
-            <%= link_to travels_path(continent: "North America"), class: "map-area map-northamerica" do %>
-            <i class="fas fa-map-marker-alt color"></i> 北米
-            <% end %>
-          </div>
-          <div class="map-area map-southamerica">
-            <%= link_to travels_path(continent: "South America"), class: "map-area map-southamerica" do %>
-            <i class="fas fa-map-marker-alt color"></i> 中南米
-            <% end %>
-          </div>
+          <%# Settings.continent.keysはsettings.ymlのデータが入っている。しかしシンボルのままなので.map(&:to_s)をつけてあげて文字列に変更してあげてeachでまわしてあげる。map-<%= continent はmap-erope,asiaなどが入っている。Settings.continent.sendは文字列を呼び出すためのメソッドのこと。sendを記述しないと(continent)は文字列なのでnilになって文字列を呼び出せない %>
+          <% Settings.continent.keys.map(&:to_s).each do |continent| %>
+            <div class="map-area map-<%= continent %>">
+              <%= link_to  travels_path(continent: continent), class: "map-area map-#{continent}" do %>
+                <i class="fas fa-map-marker-alt color"></i> <%= Settings.continent.send(continent) %>
+              <% end %>
+            </div>
+          <% end %>
         </div>
         <div class="modal-string">
         <p>国内から探す ></p>
         </div>
         <div class="map-image-wrapper">
           <%= image_tag "japan_map.jpg", class: "map-image" %>
-          <div class="map-area map-hokkaido">
-            <%= link_to travels_path(area: "北海道"), class: "map-area map-hokkaido" do %>
-            <i class="fas fa-map-marker-alt color"></i> 北海道
-            <% end %>
-          </div>
-          <div class="map-area map-tohoku">
-            <%= link_to travels_path(area: "東北"), class: "map-area map-tohoku" do %>
-            <i class="fas fa-map-marker-alt color"></i> 東北
-            <% end %>
-          </div>
-          <div class="map-area map-kanto">
-            <%= link_to travels_path(area: "関東"), class: "map-area map-kanto" do %>
-            <i class="fas fa-map-marker-alt color"></i> 関東
-            <% end %>
-          </div>
-          <div class="map-area map-chubu">
-            <%= link_to travels_path(area: "中部"), class: "map-area map-chubu" do %>
-            <i class="fas fa-map-marker-alt color"></i> 中部
-            <% end %>
-          </div>
-          <div class="map-area map-kansai">
-            <%= link_to  travels_path(area: "関西"), class: "map-area map-kansai" do %>
-            <i class="fas fa-map-marker-alt color"></i> 関西
-            <% end %>
-          </div>
-          <div class="map-area map-chugoku">
-            <%= link_to  travels_path(area: "中国"), class: "map-area map-chugoku" do %>
-            <i class="fas fa-map-marker-alt color"></i> 中国
-            <% end %>
-          </div>
-          <div class="map-area map-shikoku">
-            <%= link_to travels_path(area: "四国"), class: "map-area map-shikoku" do %>
-            <i class="fas fa-map-marker-alt color"></i> 四国
-            <% end %>
-          </div>
-          <div class="map-area map-kyushu">
-            <%= link_to travels_path(area: "九州"), class: "map-area map-kyushu" do %>
-            <i class="fas fa-map-marker-alt color"></i> 九州
-            <% end %>
-          </div>
+          <% Settings.area.keys.map(&:to_s).each do |area| %>
+            <div class="map-area map-<% area %>">
+              <%= link_to travels_path(area: area), class: "map-area map-#{area}" do %>
+                <i class="fas fa-map-marker-alt color"></i> <%= Settings.area.send(area) %>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
       <div class="modal-footer">

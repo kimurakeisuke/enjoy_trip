@@ -205,12 +205,12 @@ a.map-area {
   left: 39%;
 }
 
-.map-northamerica {
+.map-north_america {
   top: 30%;
   right: 18%;
 }
 
-.map-southamerica {
+.map-south_america {
   bottom: 33%;
   right: 1%;
 }
@@ -308,24 +308,40 @@ a.map-area {
 
 // 詳細、編集、削除ボタン
 
-.detail {
-  position: absolute;
-  display: block;
-  font-size: 20px;
-  color: black;
-  padding: 3px 15px;
-  background: #fff;
+// .detail {
+//   position: absolute;
+//   display: block;
+//   font-size: 20px;
+//   color: black;
+//   padding: 3px 15px;
+//   background: #fff;
+// }
+
+// .edit {
+//   position: absolute;
+//   display: block;
+//   font-size: 20px;
+//   color: black;
+//   padding: 3px 15px;
+//   background: #fff;
+// }
+
+.top-image {
+  position: relative;
 }
 
-.edit {
+.top-image div.text {
   position: absolute;
-  display: block;
-  font-size: 20px;
-  color: black;
-  padding: 3px 15px;
-  background: #fff;
+  left: 65px;
+  top: 60px;
+  font-size: 40px;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 3px;
 }
 
-.image {
-  float: left;
+.box-img,
+.box-text {
+  display: inline-block;
+  vertical-align: middle;
 }

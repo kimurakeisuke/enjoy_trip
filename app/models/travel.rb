@@ -24,13 +24,13 @@ class Travel < ApplicationRecord
     # 海外の場合は、こちらが動く
     self.country_code = geocoder.country_code
     country = ISO3166::Country.new(self.country_code)
-    self.continent = country.continent
+    self.continent = country.continent.downcase.gsub(/ /, "_")
 
     # 日本の場合は、地域区分 area を定義
     if self.country_code == "JP"
       state = geocoder.state
       pref = JpPrefecture::Prefecture.find name: state
-      self.area = pref.area
+      self.area = Settings.area.to_h.key(pref.area).to_s
     else
       self.area = nil
     end
