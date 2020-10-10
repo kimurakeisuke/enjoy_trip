@@ -1,23 +1,23 @@
 
-<%= form_with model: @travel, local: true, id: "travel-form" do |form| %>
+<%= form_with model: @travel, local: true, id: "travel-form",class: "new-post-detail" do |form| %>
   <p>
-    <%= form.label :country %>
-    <%= form.text_field :country  %>
+    <%= form.label :国名, class: "field" %>
+    <%= form.text_field :country, class: "field", size: 30 %>
   </p>
   <p>
-    <%= form.label :region %>
-    <%= form.text_field :region %>
+    <%= form.label :地域 %>
+    <%= form.text_field :region, class: "field", size: 30 %>
   </p>
   <p>
-    <%= form.label :city %>
-    <%= form.text_field :city %>
+    <%= form.label :都市 %>
+    <%= form.text_field :city, class: "field", size: 30 %>
   </p>
   <p>
-    <%= form.label :travel_plan %>
-    <%= form.text_area :travel_plan %>
+    <%= form.label :旅行プラン %>
+    <%= form.text_area :travel_plan, class: "field", size: "50x3" %>
   </p>
   <p>
-    <%= form.label :travel_details %>
+    <%#= form.label :travel_details %>
     <%# model: @travel_detailsとしてあげることで@travel.travel_details.order(:id)の内容を取得できるようになったので表示の順番が正常になる%>
     <%= form.fields :travel_details, model: @travel_details do |travel_detail| %>
       <% render "travel_detail_fields", f: travel_detail %>

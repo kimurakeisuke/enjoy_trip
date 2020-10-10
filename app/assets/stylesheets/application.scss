@@ -325,4 +325,21 @@ a.map-area {
 .box-text {
   display: inline-block;
   vertical-align: middle;
+  text-align: left;
+}
+
+// トップページ
+.report {
+  text-align: center;
+  margin-top: 20px;
+}
+
+// 新規投稿ページ
+.new-post {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.field {
+  margin-bottom: 3px;
 }
