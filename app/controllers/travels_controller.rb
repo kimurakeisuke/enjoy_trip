@@ -15,6 +15,8 @@ class TravelsController < ApplicationController
     if user_signed_in?
       @favorited_travel_ids = current_user.favorites.pluck(:travel_id)
     end
+
+    @travels = Travel.page(params[:page]).per(3)
   end
 
   def new

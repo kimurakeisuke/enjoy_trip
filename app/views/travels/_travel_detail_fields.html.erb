@@ -1,12 +1,12 @@
 <div class="nested-fields">
   <%= f.hidden_field :_destroy %>
   <p>
-    <%= f.label :image %>
+    <%= f.label :写真 %>
     <%= f.file_field :image, data: { image_url: f.object.image.url } %>
   </p>
   <p>
-    <%= f.label :content %>
-    <%= f.text_area :content %>
+    <%= f.label :コメント %>
+    <%= f.text_area :content, class: "field", size: "70x5" %>
   </p>
   <%= link_to_remove_association "削除", f %>
 </div>

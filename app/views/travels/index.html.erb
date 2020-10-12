@@ -1,32 +1,50 @@
 <% if params[:continent].present? %>
-<%= image_tag "#{params[:continent]}.jpg", style: "width: 100%" %>
+<div class="top-image">
+  <%= image_tag "#{params[:continent]}.jpg", style: "width: 100%" %>
+  <div class="text"><%= Settings.continent.send(params[:continent]) %></div>
+</div>
 <% elsif params[:area].present? %>
-<%= image_tag "#{params[:area]}.jpg", style: "width: 100%" %>
+<div class="top-image">
+  <%= image_tag "#{params[:area]}.jpg", style: "width: 100%" %>
+  <div class="text"><%= ("#{Settings.area.send(params[:area])}地方") %></div>
+</div>
+<% else %>
+<div class="top-image">
+  <%= image_tag "app-top-image", style: "width: 100%"%>
+</div>
+<%# <%= link_to "投稿一覧", travels_path, class: "list" %> 
+<%#= link_to "新規投稿", new_travel_path, class: "list" %>
 <% end %>
-<hr>
-<h1>みんなの旅行日記</h1>
-<% @travels.each.with_index(1) do |travel, i| %>
-  <hr>
-  <p><%= image_tag travel.travel_details.order(:id).first.image.url, width: 300 %></p>
-  <p>No. <%= i %></p>
-  <p><%= l travel.created_at, format: :short %></p>
-  <p>国名: <%= travel.country %></p>
-  <p>地域: <%= travel.region %></p>
-<% if user_signed_in? %>
-  <p id="travel-<%= travel.id %>">
-    <% if @favorited_travel_ids.include?(travel.id) %>
-      <%= render "favorite", travel: travel %>
-    <% else %>
-      <%= render "disfavorite", travel: travel %>
-    <% end %>
-  </p>
-<% end %>
-<p>
-  <%= link_to "詳細", travel %>
-  <% if user_signed_in? && current_user.id == travel.user.id %>
-    <%= link_to "編集", edit_travel_path(travel) %>
-    <%= link_to "削除", travel_path(travel),method: :delete, data: { confirm: "削除しますか?" } %>
+<div class="report">
+  <h1>みんなの旅行日記</h1>
+  <% @travels.each.with_index(1) do |travel, i| %>
+    <hr width="80%" noshade>
+    <div class="box-img">
+    <p><%= image_tag travel.travel_details.order(:id).first.image.url, width: 300 %></p>
+    </div>
+    <div class="box-text">
+      <p>No. <%= i %></p>
+      <p>国名: <%= travel.country %></p>
+      <p>地域: <%= travel.region %></p>
+      <p><%= l travel.created_at, format: :short %></p>
+      <% if user_signed_in? %>
+        <p id="travel-<%= travel.id %>">
+          <% if @favorited_travel_ids.include?(travel.id) %>
+            <%= render "favorite", travel: travel %>
+          <% else %>
+            <%= render "disfavorite", travel: travel %>
+          <% end %>
+        </p>
+      <% end %>
+      <p>
+        <%= link_to "詳細", travel %>
+        <% if user_signed_in? && current_user.id == travel.user.id %>
+          <%= link_to "編集", edit_travel_path(travel) %>
+          <%= link_to "削除", travel_path(travel),method: :delete, data: { confirm: "削除しますか?" } %>
+        <% end %>
+      </p>
+    </div>
   <% end %>
-</p>
-<% end %>
-<hr>
+  <%= paginate @travels %>
+</div>
+
