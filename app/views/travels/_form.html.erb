@@ -1,21 +1,20 @@
-
-<%= form_with model: @travel, local: true, id: "travel-form",class: "new-post-detail" do |form| %>
-  <p>
-    <%= form.label :国名, class: "field" %>
-    <%= form.text_field :country, class: "field", size: 30 %>
-  </p>
-  <p>
-    <%= form.label :地域 %>
-    <%= form.text_field :region, class: "field", size: 30 %>
-  </p>
-  <p>
-    <%= form.label :都市 %>
-    <%= form.text_field :city, class: "field", size: 30 %>
-  </p>
-  <p>
-    <%= form.label :旅行プラン %>
-    <%= form.text_area :travel_plan, class: "field", size: "50x3" %>
-  </p>
+<%= form_with model: @travel, local: true, id: "travel-form" do |form| %>
+  <div class="form-group">
+    <%= form.label :country, "国名" %>
+    <%= form.text_field :country, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :region, "地域" %>
+    <%= form.text_field :region, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :city, "都市" %>
+    <%= form.text_field :city, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :travel_plan, "旅行プラン" %>
+    <%= form.text_area :travel_plan, class: "form-control", rows: 2 %>
+  </div>
   <p>
     <%#= form.label :travel_details %>
     <%# model: @travel_detailsとしてあげることで@travel.travel_details.order(:id)の内容を取得できるようになったので表示の順番が正常になる%>
@@ -24,7 +23,7 @@
     <% end %>
   </p>
   <p>
-    <%= link_to_add_association "＋写真とコメントを追加", form, :travel_details %>
+    <%= link_to_add_association "＋写真とコメントを追加", form, :travel_details  %>
   </p>
   <p><%= form.submit "送信" %></p>
 <% end %>
