@@ -28,9 +28,9 @@
     <div class="form-group">
       <%= f.submit t('.update'), class: 'btn btn-primary' %>
     </div>
-      <%= link_to "投稿一覧", travels_path, class: "list" %>
   <% end %>
-  <hr class="devise-link my-5">
+  <hr class="devise-link my-5" noshade>
+    <%= link_to "投稿一覧", travels_path, class: "list" %>
   <div class="form-group">
     <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: {confirm: t('.are_you_sure')}, method: :delete, class: 'btn btn-danger btn-block' %>
   </div>

@@ -10,7 +10,7 @@
 </div>
 <% else %>
 <div class="top-image">
-  <%= image_tag "app-top-image", style: "width: 100%" %>
+  <%= image_tag "app-top-image", style: "width: 100%"%>
 </div>
 <%# <%= link_to "投稿一覧", travels_path, class: "list" %> 
 <%#= link_to "新規投稿", new_travel_path, class: "list" %>
@@ -45,5 +45,6 @@
       </p>
     </div>
   <% end %>
+  <%= paginate @travels %>
 </div>
 

@@ -343,3 +343,27 @@ a.map-area {
 .field {
   margin-bottom: 3px;
 }
+
+// ページネーション自体のデザイン
+.pagination>li>a {
+  border: none;
+  /*枠線をなくす*/
+  color: black;
+  /*文字の色を変える*/
+}
+
+// 表示しているページ番号のデザイン 
+.pagination>.active>a {
+  background: #93c9ff;
+  border-radius: 30px;
+}
+
+//ホバー時のデザイン
+.pagination>li>a:hover {
+  border-radius: 30px;
+}
+
+//ページネーションの中央寄せ
+.pagination {
+  justify-content: center;
+}
