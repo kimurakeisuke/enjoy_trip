@@ -5,18 +5,16 @@ class TravelsController < ApplicationController
   def index
     if params[:continent].present?
       # where 与えられた条件にマッチするレコードを全て返す
-      @travels = Travel.where(continent: params[:continent]).order(:id)
+      @travels = Travel.where(continent: params[:continent]).order(:id).page(params[:page]).per(3)
     elsif params[:area].present?
-      @travels = Travel.where(area: params[:area]).order(:id)
+      @travels = Travel.where(area: params[:area]).order(:id).page(params[:page]).per(3)
     else
-      @travels = Travel.order(:id)
+      @travels = Travel.order(:id).page(params[:page]).per(3)
     end
     # ユーザーがサインインしていたらお気に入り機能が使えるようになる。
     if user_signed_in?
       @favorited_travel_ids = current_user.favorites.pluck(:travel_id)
     end
-
-    @travels = Travel.page(params[:page]).per(3)
   end
 
   def new
