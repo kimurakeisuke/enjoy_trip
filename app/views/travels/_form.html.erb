@@ -23,7 +23,7 @@
     <% end %>
   </p>
   <p>
-    <%= link_to_add_association "＋写真とコメントを追加", form, :travel_details  %>
+    <%= link_to_add_association "＋ 写真とコメントを追加", form, :travel_details, class: "btn-image-content"  %>
   </p>
-  <p><%= form.submit "送信" %></p>
+  <p><%= form.submit "送信" , class: "btn-send"%></p>
 <% end %>

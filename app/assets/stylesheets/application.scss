@@ -324,20 +324,56 @@ a.map-area {
   margin-bottom: 30px;
 }
 // 新規投稿の削除ボタン
-.btn-remove {
+a.btn-remove {
   display: inline-block;
-  padding: 0.5em 1em;
+  padding: 0.4em 2em;
   text-decoration: none;
-  border-radius: 4px;
-  color: #ffffff;
-  background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
-  border-bottom: solid 3px #5e7fca;
+  background: #f60404;
+  color: #fff;
+  border-bottom: solid 4px #b45d5d;
+  border-radius: 3px;
 }
 
-.btn-remove:active {
+a.btn-remove:active {
   -webkit-transform: translateY(4px);
   transform: translateY(4px);
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
   border-bottom: none;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+// +写真とコメントの追加
+a.btn-image-content {
+  display: inline-block;
+  padding: 0.4em 2em;
+  text-decoration: none;
+  background: #3369dd;
+  color: #fff;
+  border-bottom: solid 4px #5a76b3;
+  border-radius: 3px;
+}
+
+a.btn-image-content:active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  border-bottom: none;
+  text-decoration: none;
+}
+
+// 新規投稿の送信ボタン
+.btn-send {
+  display: inline-block;
+  padding: 0.4em 2em;
+  text-decoration: none;
+  background: rgb(233, 230, 230);
+  color: black;
+  border-radius: 3px;
+}
+
+.btn-send:active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  border-bottom: none;
+  color: #fff;
+  text-decoration: none;
 }
