@@ -9,11 +9,33 @@
   <div class="text"><%= ("#{Settings.area.send(params[:area])}地方") %></div>
 </div>
 <% else %>
-<div class="top-image">
-  <%= image_tag "app-top-image", style: "width: 100%"%>
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel" data-interval="7000">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag "app-top-image.jpg", class:"bd-placeholder-img w-100"%>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "stockholm.jpg", class:"bd-placeholder-img w-100"%>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "swiss.jpg", class:"bd-placeholder-img w-100"%>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "gamla-stan.jpg", class:"bd-placeholder-img w-100"%>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "tekapo.jpg", class:"bd-placeholder-img w-100"%>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
-<%# <%= link_to "投稿一覧", travels_path, class: "list" %> 
-<%#= link_to "新規投稿", new_travel_path, class: "list" %>
 <% end %>
 <div class="report">
   <h1>みんなの旅行日記</h1>
