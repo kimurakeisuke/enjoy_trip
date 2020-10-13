@@ -236,25 +236,19 @@ a.map-area {
 .favorite-btn {
   width: 25px;
   height: 30px;
-  font-size: 25px;
-  color: #fff;
-  margin-left: 10px;
+  font-size: 30px;
+  color: yellow;
+  margin-left: 5px;
   padding: 3px 1px;
-  border: 2px solid rgb(230, 11, 11);
-  border-radius: 30px;
-  background: rgb(230, 11, 11);
 }
 
 .disfavorite-btn {
   width: 25px;
   height: 30px;
-  font-size: 25px;
-  color: #808080;
-  margin-left: 10px;
+  font-size: 30px;
+  color: #a8a5a5;
+  margin-left: 5px;
   padding: 3px 1px;
-  border: 2px solid rgb(236, 234, 234);
-  border-radius: 30px;
-  background: rgb(236, 234, 234);
 }
 
 .top-image {
@@ -376,4 +370,136 @@ a.btn-image-content:active {
   border-bottom: none;
   color: #fff;
   text-decoration: none;
+}
+
+// みんなの投稿の詳細ボタン
+a.detail {
+  background: #1aab8a;
+  color: #fff;
+  border: none;
+  position: relative;
+  height: 40px;
+  font-size: 1em;
+  padding: 0 1em;
+  cursor: pointer;
+  transition: 800ms ease all;
+  outline: none;
+}
+
+a.detail:hover {
+  background: #fff;
+  color: #1aab8a;
+}
+
+a.detail:before,
+a.detail:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #1aab8a;
+  transition: 400ms ease all;
+}
+
+a.detail:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+
+a.detail:hover:before,
+a.detail:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
+}
+
+// みんなの投稿の編集ボタン
+a.edit {
+  background: #1755dd;
+  color: #fff;
+  border: none;
+  position: relative;
+  height: 40px;
+  font-size: 1em;
+  padding: 0 1em;
+  cursor: pointer;
+  transition: 800ms ease all;
+  outline: none;
+}
+
+a.edit:hover {
+  background: #fff;
+  color: #1755dd;
+}
+
+a.edit:before,
+a.edit:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #1755dd;
+  transition: 400ms ease all;
+}
+
+a.edit:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+
+a.edit:hover:before,
+a.edit:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
+}
+
+// みんなの投稿の削除ボタン
+a.remove {
+  background: #e03232;
+  color: #fff;
+  border: none;
+  position: relative;
+  height: 40px;
+  font-size: 1em;
+  padding: 0 1em;
+  cursor: pointer;
+  transition: 800ms ease all;
+  outline: none;
+}
+
+a.remove:hover {
+  background: #fff;
+  color: #e03232;
+}
+
+a.remove:before,
+a.remove:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #e03232;
+  transition: 400ms ease all;
+}
+
+a.remove:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+
+a.remove:hover:before,
+a.remove:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
 }
