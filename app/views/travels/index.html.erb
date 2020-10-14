@@ -9,7 +9,7 @@
   <div class="text"><%= ("#{Settings.area.send(params[:area])}地方") %></div>
 </div>
 <% else %>
-<div id="carousel-top-fade" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
+<div id="carousel-top-fade" class="carousel slide carousel-fade" data-ride="carousel" data-interval="7000">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <%= image_tag "app-top-image.jpg", class:"bd-placeholder-img w-100"%>
@@ -38,7 +38,7 @@
 </div>
 <% end %>
 <div class="report">
-  <h1>みんなの旅行日記</h1>
+  <h1>旅行日記</h1>
   <% @travels.each.with_index(1) do |travel, i| %>
     <hr width="80%" noshade>
     <div class="box-img">
