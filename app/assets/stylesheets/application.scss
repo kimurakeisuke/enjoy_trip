@@ -240,6 +240,7 @@ a.map-area {
   color: yellow;
   margin-left: 5px;
   padding: 3px 1px;
+  margin-top: 10px;
 }
 
 .disfavorite-btn {
@@ -249,6 +250,7 @@ a.map-area {
   color: #a8a5a5;
   margin-left: 5px;
   padding: 3px 1px;
+  margin-top: 10px;
 }
 
 .top-image {
@@ -278,17 +280,24 @@ a.map-area {
   margin-top: 20px;
 }
 
-// 新規投稿ページ
-.container-post {
-  @extend .container-fluid;
-  max-width: 576px;
-  padding: 2rem;
+// 投稿詳細のmap
+#map {
+  height: 400px;
+  max-width: 400px;
+  // margin-bottom: 50px;
+}
+// 投稿詳細の写真
+.travel-detils-image {
+  margin-top: 50px;
 }
 
-.new-post {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  text-align: center;
+// 投稿詳細の投稿一覧
+
+// 新規投稿ページ、投稿詳細ページ、
+.container-post {
+  max-width: 576px;
+  padding: 2rem;
+  margin: 0 auto;
 }
 
 // ページネーション自体のデザイン
@@ -500,6 +509,51 @@ a.remove:after {
 
 a.remove:hover:before,
 a.remove:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
+}
+
+// 投稿詳細の投稿一覧ボタン
+
+a.list-post {
+  background: #313130;
+  color: #fff;
+  border: none;
+  position: relative;
+  height: 40px;
+  font-size: 1em;
+  padding: 0 1em;
+  cursor: pointer;
+  transition: 800ms ease all;
+  outline: none;
+}
+
+a.list-post:hover {
+  background: #fff;
+  color: #313130;
+}
+
+a.list-post:before,
+a.list-post:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #313130;
+  transition: 400ms ease all;
+}
+
+a.list-post:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+
+a.list-post:hover:before,
+a.list-post:hover:after {
   width: 100%;
   transition: 800ms ease all;
 }

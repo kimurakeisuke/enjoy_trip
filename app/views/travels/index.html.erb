@@ -39,7 +39,7 @@
 <% end %>
 <div class="report">
   <h1>旅行日記</h1>
-  <% @travels.each.with_index(1) do |travel, i| %>
+  <% @travels.each do |travel| %>
     <hr width="80%" noshade>
     <div class="box-img">
     <p><%= image_tag travel.travel_details.order(:id).first.image.url, width: 300 %></p>
