@@ -274,6 +274,10 @@ a.map-area {
   text-align: left;
 }
 
+.string-font {
+  font-size: 18px;
+}
+
 // トップページ
 .report {
   text-align: center;
@@ -282,13 +286,15 @@ a.map-area {
 
 // 投稿詳細のmap
 #map {
-  height: 400px;
-  max-width: 400px;
+  height: 300px;
+  max-width: 600px;
   // margin-bottom: 50px;
 }
+
 // 投稿詳細の写真
 .travel-detils-image {
   margin-top: 50px;
+  max-width: 100%;
 }
 
 // 投稿詳細の投稿一覧
@@ -301,19 +307,19 @@ a.map-area {
 }
 
 // ページネーション自体のデザイン
-.pagination > li > a {
+.pagination>li>a {
   border: none;
   color: black;
 }
 
 // 表示しているページ番号のデザイン
-.pagination > .active > a {
+.pagination>.active>a {
   background: #93c9ff;
   border-radius: 30px;
 }
 
 //ホバー時のデザイン
-.pagination > li > a:hover {
+.pagination>li>a:hover {
   border-radius: 30px;
 }
 
@@ -326,6 +332,7 @@ a.map-area {
 .post-list {
   margin-bottom: 30px;
 }
+
 // 新規投稿の削除ボタン
 a.btn-remove {
   display: inline-block;
@@ -556,4 +563,10 @@ a.list-post:hover:before,
 a.list-post:hover:after {
   width: 100%;
   transition: 800ms ease all;
+}
+
+// 投稿詳細のコメントの行間
+.content-detail {
+  line-height: 2;
+  font-size: 18px;
 }
