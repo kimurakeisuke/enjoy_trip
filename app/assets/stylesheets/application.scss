@@ -56,7 +56,7 @@ body {
   background-color: transparent;
 }
 
-// ヘッダーのリスト部分
+// エリアから探すの投稿一覧ボタン
 
 a.list {
   padding-right: 2em;
@@ -93,42 +93,24 @@ a.list {
 .forgot-passward {
   font-size: 11px;
   margin-top: 0.5rem;
-  // display: inline-block;
 }
 
 .nav-login {
-  // padding: 0.5em 1em;
-  // margin: 2em 0;
   margin: 0px 0px 7px;
   font-weight: normal;
-  // background: #FFF;
   border: solid 1px #fff;
   border-radius: 30px;
 }
 
 .nav-new {
-  // padding: 0.5em 1em;
-  // margin: 2em 0;
   margin: 0px 0px 7px;
   font-weight: normal;
-  // background: #FFF;
   border: solid 1px#FFF;
   border-radius: 30px;
 }
 
 .text-brown {
   opacity: 0.6;
-}
-
-.nav-account {
-  // padding: 0.5em 1em;
-  // margin: 2em 0;
-  margin: -1px 10px;
-  font-weight: normal;
-  color: #6091d3;
-  background: #fff;
-  border: solid 1px #6091d3;
-  border-radius: 30px;
 }
 
 // 世界地図と日本地図(modal)
@@ -202,7 +184,6 @@ a.map-area {
 }
 
 .map-kanto {
-  font-size: 20px;
   bottom: 33%;
   right: 24%;
 }
@@ -253,9 +234,13 @@ a.map-area {
   margin-top: 10px;
 }
 
+// topページの画像
+
 .top-image {
   position: relative;
 }
+
+// 写真の中の文字
 
 .top-image div.text {
   position: absolute;
@@ -266,6 +251,8 @@ a.map-area {
   font-weight: 600;
   letter-spacing: 3px;
 }
+
+// topページの投稿の写真と投稿内容の部分
 
 .box-img,
 .box-text {
@@ -288,7 +275,6 @@ a.map-area {
 #map {
   height: 300px;
   max-width: 600px;
-  // margin-bottom: 50px;
 }
 
 // 投稿詳細の写真
@@ -296,8 +282,6 @@ a.map-area {
   margin-top: 50px;
   max-width: 100%;
 }
-
-// 投稿詳細の投稿一覧
 
 // 新規投稿ページ、投稿詳細ページ、
 .container-post {
@@ -328,7 +312,7 @@ a.map-area {
   justify-content: center;
 }
 
-// 新規投稿
+// アカウント編集の投稿一覧部分
 .post-list {
   margin-bottom: 30px;
 }
@@ -349,10 +333,18 @@ a.btn-remove:active {
   transform: translateY(4px);
   border-bottom: none;
   text-decoration: none;
-  margin-top: 20px;
 }
 
-// +写真とコメントの追加
+// 編集、新規投稿の写真の文字の上にmargin
+.string-margin {
+  margin-top: 15px;
+}
+
+.font-size {
+  font-size: 20px;
+}
+
+// + 写真とコメントの追加
 a.btn-image-content {
   display: inline-block;
   padding: 0.4em 2em;
@@ -388,7 +380,7 @@ a.btn-image-content:active {
   text-decoration: none;
 }
 
-// みんなの投稿の詳細ボタン
+// topページの詳細ボタン
 a.detail {
   background: #1aab8a;
   color: #fff;
@@ -432,7 +424,7 @@ a.detail:hover:after {
   transition: 800ms ease all;
 }
 
-// みんなの投稿の編集ボタン
+// topページの編集ボタン
 a.edit {
   background: #1755dd;
   color: #fff;
@@ -476,7 +468,7 @@ a.edit:hover:after {
   transition: 800ms ease all;
 }
 
-// みんなの投稿の削除ボタン
+// topページの削除ボタン
 a.remove {
   background: #e03232;
   color: #fff;
