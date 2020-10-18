@@ -20,6 +20,7 @@ require("@nathanvda/cocoon");
 require("@fortawesome/fontawesome-free/js/all");
 require("./jquery.ezdz.min");
 
+
 document.addEventListener('DOMContentLoaded', () => {
   const heicChanger = (target) => {
     target.on('change', e => {

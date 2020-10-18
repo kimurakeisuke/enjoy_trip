@@ -6,7 +6,7 @@
     <% if user_signed_in? || !devise_controller? %>
       <div class="dropdown">
         <button class="btn-header mr-4" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-          <i class="far fa-user-circle fa-2x text-white"></i>
+          <i class="fas fa-user-circle fa-2x text-white"></i>
         </button>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
           <% if user_signed_in? %>
@@ -34,11 +34,11 @@
         <% unless user_signed_in? %>
           <% if request.path == "/users/sign_in" %>
             <li class="nav-item active">
-              <span class="nav-link text-brown">
-                まだ会員でない方
+              <span class="nav-link text-brown yet-member">
+                まだ会員<br class="header-br">でない方
               </span>
             </li>
-            <li class="nav-item active nav-new">
+            <li class="nav-item active nav-new" >
               <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-white' %>
             </li>
           <% elsif request.path == "/users/sign_up" %>

@@ -11,12 +11,12 @@
  .ezdz-dropzone {
    position: relative;
    border-radius: 20px;
-   font: bold 24px arial;
+   font: bold 50px arial;
    text-align: center;
-   width: 250px;
-   height: 200px;
-   line-height: 200px;
-   border: 10px dotted lightgray;
+   width: 320px;
+   height: 300px;
+   line-height: 265px;
+   border: 10px dashed lightgray;
    color: lightgray;
    overflow: hidden;
  }
@@ -46,7 +46,7 @@
    border-radius: 5px;
    max-width: 95%;
    max-height: 95%;
-   margin-top: -3px;
+   margin-top: 7px;
    vertical-align: middle;
  }
 
@@ -65,7 +65,7 @@
  }
 
  .ezdz-focus {
-   border: 10px dotted darkgray;
+   border: 10px dashed darkgray;
    color: darkgray;
  }
 

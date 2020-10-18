@@ -48,6 +48,8 @@ gem "jp_prefecture"
 gem "config"
 
 gem "kaminari"
+gem "jquery-rails"
+
 
 
 group :development, :test do

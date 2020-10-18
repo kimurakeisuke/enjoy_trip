@@ -1,44 +1,57 @@
-<hr>
-<h1>投稿詳細</h1>
-<div id='map'></div>
-<p><%= l @travel.created_at, format: :short %></p>
-<h4>国名</h4>
-<p id="travel-country"><%= @travel.country %></p>
-<h4>地域</h4>
-<p id="travel-region"><%= @travel.region %></p>
-<h4>都市</h4>
-<p id="travel-city"><%= @travel.city %></p>
-<h4>旅行プラン</h4>
-<p><%= @travel.travel_plan %></p>
-<% @travel_details.each do |travel_detail| %>
-  <%# <h4>写真</h4> %>
-  <p><%= image_tag travel_detail.image.url, width: 320 %></p>
-  <%# <h4>コメント</h4> %>
-  <%= travel_detail.content %>
-<% end %>
-<% if user_signed_in? %>
-  <p id="travel-<%= @travel.id %>">
-    <% if @travel.favorited_by?(current_user) %>
-      <%= render "favorite", travel: @travel %>
-    <% else %>
-      <%= render "disfavorite", travel: @travel %>
-    <% end %>
-  </p>
-<% end %>
-<% if user_signed_in? && current_user.id == @travel.user.id %>
-  <p>
-    <%= link_to "編集", edit_travel_path(@travel) %>
-    <%= link_to "削除", travel_path(@travel), method: :delete, data: { confirm: "削除しますか?" } %>
-  </p>
-<% end %>
-<p><%= link_to "投稿一覧", travels_path %></p>
-<hr>
-<style>
-  #map {
-    height: 400px;
-    width: 400px;
-  }
-</style>
+<div id="carousel-top-fade" class="carousel slide carousel-fade" data-ride="carousel" data-interval="7000">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag "passport.jpg", class:"bd-placeholder-img w-100" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "plane.jpg", class:"bd-placeholder-img w-100" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "road.jpg", class:"bd-placeholder-img w-100" %>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carousel-top-fade" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carousel-top-fade" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<div class="container-post">
+  <div class="string-font my-1">
+  <p><%= l @travel.created_at, format: :short %></p>
+  <p><%= @travel.country %></p>
+  <p><%= @travel.region %></p>
+  <p><%= @travel.city %></p>
+  <p><%= @travel.travel_plan %></p>
+  </div>
+  <div id='map'></div>
+  <% @travel_details.each do |travel_detail| %>
+    <p><%= image_tag travel_detail.image.url, width: 600, class: "travel-detils-image" %></p>
+    <div class="content-detail">
+      <%= travel_detail.content %>
+    </div>
+  <% end %>
+  <% if user_signed_in? %>
+    <p id="travel-<%= @travel.id%>">
+      <% if @travel.favorited_by?(current_user) %>
+        <%= render "favorite", travel: @travel %>
+      <% else %>
+        <%= render "disfavorite", travel: @travel %>
+      <% end %>
+    </p>
+  <% end %>
+  <% if user_signed_in? && current_user.id == @travel.user.id %>
+    <p>
+      <%= link_to "編集", edit_travel_path(@travel), class: "list-edit" %>
+      <%= link_to "削除", travel_path(@travel), method: :delete, data: { confirm: "削除しますか?" }, class: "list-remove" %>
+    </p>
+  <% end %>
+  <p><%= link_to "投稿一覧", travels_path, class: "list-post" %></p>
+</div>
+
 <script>
   let map
   

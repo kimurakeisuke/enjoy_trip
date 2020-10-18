@@ -38,17 +38,15 @@
 </div>
 <% end %>
 <div class="report">
-  <h1>みんなの旅行日記</h1>
-  <% @travels.each.with_index(1) do |travel, i| %>
+  <% @travels.each do |travel| %>
     <hr width="80%" noshade>
     <div class="box-img">
     <p><%= image_tag travel.travel_details.order(:id).first.image.url, width: 300 %></p>
     </div>
     <div class="box-text">
-      <p>No. <%= i %></p>
-      <p>国名: <%= travel.country %></p>
-      <p>地域: <%= travel.region %></p>
       <p><%= l travel.created_at, format: :short %></p>
+      <p>国名 : <%= travel.country %></p>
+      <p>地域 : <%= travel.region %></p>
       <% if user_signed_in? %>
         <p id="travel-<%= travel.id %>">
           <% if @favorited_travel_ids.include?(travel.id) %>
@@ -59,10 +57,10 @@
         </p>
       <% end %>
       <p>
-        <%= link_to "詳細", travel %>
+        <%= link_to "詳細", travel , class: "detail" %>
         <% if user_signed_in? && current_user.id == travel.user.id %>
-          <%= link_to "編集", edit_travel_path(travel) %>
-          <%= link_to "削除", travel_path(travel),method: :delete, data: { confirm: "削除しますか?" } %>
+          <%= link_to "編集", edit_travel_path(travel), class: "edit" %>
+          <%= link_to "削除", travel_path(travel), method: :delete, data: { confirm: "削除しますか?" } , class: "remove" %>
         <% end %>
       </p>
     </div>
