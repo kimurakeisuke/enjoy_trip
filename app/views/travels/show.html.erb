@@ -21,11 +21,11 @@
 </div>
 <div class="container-post">
   <div class="string-font my-1">
+  <p><%= l @travel.created_at, format: :short %></p>
   <p><%= @travel.country %></p>
   <p><%= @travel.region %></p>
   <p><%= @travel.city %></p>
   <p><%= @travel.travel_plan %></p>
-  <p><%= l @travel.created_at, format: :short %></p>
   </div>
   <div id='map'></div>
   <% @travel_details.each do |travel_detail| %>
@@ -45,8 +45,8 @@
   <% end %>
   <% if user_signed_in? && current_user.id == @travel.user.id %>
     <p>
-      <%= link_to "編集", edit_travel_path(@travel), class: "edit" %>
-      <%= link_to "削除", travel_path(@travel), method: :delete, data: { confirm: "削除しますか?" }, class: "remove" %>
+      <%= link_to "編集", edit_travel_path(@travel), class: "list-edit" %>
+      <%= link_to "削除", travel_path(@travel), method: :delete, data: { confirm: "削除しますか?" }, class: "list-remove" %>
     </p>
   <% end %>
   <p><%= link_to "投稿一覧", travels_path, class: "list-post" %></p>

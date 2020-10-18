@@ -219,20 +219,20 @@ a.map-area {
 .favorite-btn {
   width: 25px;
   height: 30px;
-  font-size: 30px;
+  font-size: 35px;
   color: yellow;
   margin-left: 5px;
-  padding: 3px 1px;
+  padding: 2px 1px;
   margin-top: 10px;
 }
 
 .disfavorite-btn {
   width: 25px;
   height: 30px;
-  font-size: 30px;
+  font-size: 35px;
   color: #a8a5a5;
   margin-left: 5px;
-  padding: 3px 1px;
+  padding: 2px 1px;
   margin-top: 10px;
 }
 
@@ -261,10 +261,11 @@ a.map-area {
   display: inline-block;
   vertical-align: middle;
   text-align: left;
+  margin-left: 30px;
 }
 
 .string-font {
-  font-size: 18px;
+  font-size: 17px;
 }
 
 // トップページ
@@ -320,21 +321,14 @@ a.map-area {
 }
 
 // 新規投稿の削除ボタン
-a.btn-remove {
-  display: inline-block;
-  padding: 0.4em 2em;
-  text-decoration: none;
-  background: #f60404;
+a.new-post-remove {
+  background: #e03232;
   color: #fff;
-  border-bottom: solid 4px #b45d5d;
-  border-radius: 3px;
-}
-
-a.btn-remove:active {
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);
-  border-bottom: none;
-  text-decoration: none;
+  border-radius: 10px;
+  padding: 8px 2em;
+  font-size: 17px;
+  letter-spacing: 3px;
+  display: inline-block;
 }
 
 // 編集、新規投稿の写真の文字の上にmargin
@@ -344,225 +338,114 @@ a.btn-remove:active {
 
 .font-size {
   font-size: 20px;
+  margin-top: 15px;
+}
+
+// 新規投稿のコメントの下にmargin
+.form-control-width {
+  margin-bottom: 30px;
 }
 
 // + 写真とコメントの追加
-a.btn-image-content {
-  display: inline-block;
-  padding: 0.4em 2em;
-  text-decoration: none;
-  background: #3369dd;
+a.image-content {
+  background: #1755dd;
   color: #fff;
-  border-bottom: solid 4px #5a76b3;
-  border-radius: 3px;
-}
-
-a.btn-image-content:active {
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);
-  border-bottom: none;
-  text-decoration: none;
+  border-radius: 10px;
+  padding: 8px 2em;
+  font-size: 17px;
+  letter-spacing: 3px;
+  display: inline-block;
+  margin-top: 3px;
 }
 
 // 新規投稿の送信ボタン
-.btn-send {
-  display: inline-block;
-  padding: 0.4em 2em;
-  text-decoration: none;
-  background: rgb(233, 230, 230);
-  color: black;
-  border-radius: 3px;
-}
-
-.btn-send:active {
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);
-  border-bottom: none;
+.send {
+  background: #313130;
   color: #fff;
-  text-decoration: none;
+  border-radius: 10px;
+  padding: 6px 1.9em;
+  font-size: 17px;
+  letter-spacing: 3px;
+  outline: none;
+  display: inline-block;
+  margin-top: 3px;
 }
 
 // topページの詳細ボタン
 a.detail {
-  background: #1aab8a;
   color: #fff;
-  border: none;
-  position: relative;
-  height: 40px;
+  background-color: rgb(42, 144, 73);
+  border-radius: 10px;
+  padding: 2px 1em;
   font-size: 1em;
-  padding: 0 1em;
-  cursor: pointer;
-  transition: 800ms ease all;
-  outline: none;
-}
-
-a.detail:hover {
-  background: #fff;
-  color: #1aab8a;
-}
-
-a.detail:before,
-a.detail:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 2px;
-  width: 0;
-  background: #1aab8a;
-  transition: 400ms ease all;
-}
-
-a.detail:after {
-  right: inherit;
-  top: inherit;
-  left: 0;
-  bottom: 0;
-}
-
-a.detail:hover:before,
-a.detail:hover:after {
-  width: 100%;
-  transition: 800ms ease all;
+  letter-spacing: 3px;
+  margin-right: 2px;
 }
 
 // topページの編集ボタン
 a.edit {
   background: #1755dd;
   color: #fff;
-  border: none;
-  position: relative;
-  height: 40px;
+  border-radius: 10px;
+  padding: 2px 1em;
   font-size: 1em;
-  padding: 0 1em;
-  cursor: pointer;
-  transition: 800ms ease all;
-  outline: none;
-}
-
-a.edit:hover {
-  background: #fff;
-  color: #1755dd;
-}
-
-a.edit:before,
-a.edit:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 2px;
-  width: 0;
-  background: #1755dd;
-  transition: 400ms ease all;
-}
-
-a.edit:after {
-  right: inherit;
-  top: inherit;
-  left: 0;
-  bottom: 0;
-}
-
-a.edit:hover:before,
-a.edit:hover:after {
-  width: 100%;
-  transition: 800ms ease all;
+  letter-spacing: 3px;
+  margin-right: 2px;
 }
 
 // topページの削除ボタン
 a.remove {
   background: #e03232;
   color: #fff;
-  border: none;
-  position: relative;
-  height: 40px;
+  border-radius: 10px;
+  padding: 2px 1em;
   font-size: 1em;
-  padding: 0 1em;
-  cursor: pointer;
-  transition: 800ms ease all;
-  outline: none;
-}
-
-a.remove:hover {
-  background: #fff;
-  color: #e03232;
-}
-
-a.remove:before,
-a.remove:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 2px;
-  width: 0;
-  background: #e03232;
-  transition: 400ms ease all;
-}
-
-a.remove:after {
-  right: inherit;
-  top: inherit;
-  left: 0;
-  bottom: 0;
-}
-
-a.remove:hover:before,
-a.remove:hover:after {
-  width: 100%;
-  transition: 800ms ease all;
+  letter-spacing: 3px;
 }
 
 // 投稿詳細の投稿一覧ボタン
-
 a.list-post {
   background: #313130;
   color: #fff;
-  border: none;
-  position: relative;
-  height: 40px;
-  font-size: 1em;
-  padding: 0 1em;
-  cursor: pointer;
-  transition: 800ms ease all;
-  outline: none;
+  border-radius: 4px;
+  padding: 10px 5em;
+  font-size: 20px;
+  display: block;
+  text-align: center;
+  margin-top: 25px;
+  letter-spacing: 3px;
 }
 
-a.list-post:hover {
-  background: #fff;
-  color: #313130;
+// 投稿詳細の編集ボタン
+a.list-edit {
+  background: #1755dd;
+  color: #fff;
+  border-radius: 10px;
+  padding: 8px 2em;
+  font-size: 17px;
+  letter-spacing: 3px;
+  display: inline-block;
+  margin-top: 10px;
 }
 
-a.list-post:before,
-a.list-post:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 2px;
-  width: 0;
-  background: #313130;
-  transition: 400ms ease all;
+// 投稿詳細の削除ボタン
+a.list-remove {
+  background: #e03232;
+  color: #fff;
+  border-radius: 10px;
+  padding: 8px 2em;
+  font-size: 17px;
+  margin-left: 5px;
+  letter-spacing: 3px;
+  display: inline-block;
 }
 
-a.list-post:after {
-  right: inherit;
-  top: inherit;
-  left: 0;
-  bottom: 0;
-}
-
-a.list-post:hover:before,
-a.list-post:hover:after {
-  width: 100%;
-  transition: 800ms ease all;
-}
 
 // 投稿詳細のコメントの行間
 .content-detail {
   line-height: 2;
   font-size: 18px;
+
 }
 
 // header 新規登録 

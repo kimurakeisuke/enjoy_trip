@@ -45,8 +45,8 @@
     </div>
     <div class="box-text">
       <p><%= l travel.created_at, format: :short %></p>
-      <p>国名: <%= travel.country %></p>
-      <p>地域: <%= travel.region %></p>
+      <p>国名 : <%= travel.country %></p>
+      <p>地域 : <%= travel.region %></p>
       <% if user_signed_in? %>
         <p id="travel-<%= travel.id %>">
           <% if @favorited_travel_ids.include?(travel.id) %>
