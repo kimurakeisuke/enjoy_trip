@@ -261,7 +261,7 @@ a.map-area {
   display: inline-block;
   vertical-align: middle;
   text-align: left;
-  margin-left: 30px;
+  margin-left: 5px;
 }
 
 .string-font {
@@ -289,7 +289,7 @@ a.map-area {
 // 新規投稿ページ、投稿詳細ページ、
 .container-post {
   max-width: 576px;
-  padding: 2rem;
+  padding: 1rem;
   margin: 0 auto;
 }
 
@@ -476,4 +476,83 @@ a.list-remove {
   .nav-login {
     white-space: nowrap;
   }
+}
+
+// トップページのimageの戻ると次への矢印（機能は使えなくしています）
+.slide-arrow {
+  position: absolute;
+}
+
+.prev-arrow {
+  left: 50px;
+  width: 0;
+  height: 0;
+  border-left: 0 solid transparent;
+  border-right: 20px solid rgba(255, 255, 255, 0.904);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  z-index: 1000;
+}
+
+.next-arrow {
+  right: 50px;
+  width: 0;
+  height: 0;
+  border-right: 0 solid transparent;
+  border-left: 20px solid rgba(255, 255, 255, 0.904);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+// トップページのimageの下の5つのdots部分
+.slide-dots {
+  text-align: center;
+  margin-left: -40px;
+
+  li {
+    display: inline-block;
+    margin: 0 10px;
+
+    button {
+      position: relative;
+      text-indent: -9999px;
+
+      &:before {
+        content: '⚪︎';
+        font-size: 15px;
+        text-indent: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    &.slick-active {
+      button:before {
+        content: '⚫︎';
+        color: black;
+      }
+    }
+  }
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+// dotsの背景色
+.slider {
+  background-color: #fff;
+  padding: 0;
+  width: 300px;
+  margin: 0 auto;
+  width: 100%;
 }

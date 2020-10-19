@@ -19,7 +19,8 @@ require("bootstrap/dist/js/bootstrap");
 require("@nathanvda/cocoon");
 require("@fortawesome/fontawesome-free/js/all");
 require("./jquery.ezdz.min");
-
+//= require jquery
+//= require rails-ujs
 
 document.addEventListener('DOMContentLoaded', () => {
   const heicChanger = (target) => {
