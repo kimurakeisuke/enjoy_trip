@@ -478,19 +478,7 @@ a.list-remove {
   }
 }
 
-
-button {
-  margin: 0;
-  padding: 0;
-  background: none;
-  border: none;
-  border-radius: 0;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
+// トップページのimageの戻ると次への矢印（機能は使えなくしています）
 .slide-arrow {
   position: absolute;
 }
@@ -504,7 +492,6 @@ button {
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   z-index: 1000;
-  visibility: hidden;
 }
 
 .next-arrow {
@@ -515,9 +502,9 @@ button {
   border-left: 20px solid rgba(255, 255, 255, 0.904);
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  visibility: hidden
 }
 
+// トップページのimageの下の5つのdots部分
 .slide-dots {
   text-align: center;
   margin-left: -40px;
@@ -537,28 +524,35 @@ button {
         position: absolute;
         top: 0;
         left: 0;
-        color: black;
       }
     }
 
     &.slick-active {
       button:before {
         content: '⚫︎';
+        color: black;
       }
     }
   }
 }
 
-.a {
-  background-color: #fff;
+button {
+  margin: 0;
   padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
-.b {
+// dotsの背景色
+.slider {
+  background-color: #fff;
+  padding: 0;
   width: 300px;
   margin: 0 auto;
-
-  img {
-    width: 100%;
-  }
+  width: 100%;
 }

@@ -9,12 +9,12 @@
   <div class="text"><%= ("#{Settings.area.send(params[:area])}地方") %></div>
 </div>
 <% else %>
-<div class="a">
-  <div class="b"><%= image_tag "app-top-image.jpg", width: "300px",class:"c"%></div>
-  <div class="b"><%= image_tag "stockholm.jpg", width: "100px",class:"c"%></div>
-  <div class="b"><%= image_tag "gamla-stan.jpg", width: "100px",class:"c"%></div>
-  <div class="b"><%= image_tag "swiss.jpg", width: "100px",class:"c"%></div>
-  <div class="b"><%= image_tag "tekapo.jpg", width: "100px",class:"c"%></div>
+<div class="slider">
+  <%= image_tag "app-top-image.jpg" %>
+  <%= image_tag "stockholm.jpg" %>
+  <%= image_tag "gamla-stan.jpg" %>
+  <%= image_tag "swiss.jpg" %>
+  <%= image_tag "tekapo.jpg" %>
 </div>
 <% end %>
 <div class="report">
