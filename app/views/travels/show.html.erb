@@ -41,17 +41,17 @@
   let map
   
   function initMap() {
-      geocoder = new google.maps.Geocoder()
+    geocoder = new google.maps.Geocoder()
   
-          map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: <%= @travel.latitude %>, lng: <%= @travel.longitude %>},
-            zoom: 12,
-          });
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: { lat: <%= @travel.latitude %>, lng: <%= @travel.longitude %>},
+  zoom: 12,
+            });
   
-          marker = new google.maps.Marker({
-            position: {lat: <%= @travel.latitude %>, lng: <%= @travel.longitude %>},
-            map: map
-          });
-  }
+  marker = new google.maps.Marker({
+    position: { lat: <%= @travel.latitude %>, lng: <%= @travel.longitude %>},
+  map: map
+            });
+    }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:map][:api] %>&callback=initMap" async defer></script>
