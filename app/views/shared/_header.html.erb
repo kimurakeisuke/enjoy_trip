@@ -35,7 +35,8 @@
           <% if request.path == "/users/sign_in" %>
             <li class="nav-item active">
               <span class="nav-link text-brown yet-member">
-                まだ会員<br class="header-br">でない方
+                まだ会員<br class="header-br">
+                でない方
               </span>
             </li>
             <li class="nav-item active nav-new" >
@@ -56,48 +57,4 @@
     </div>
   </nav>
 </header>
-<div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="mapModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title modal-string" id="mapModalLabel">エリアから探す</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="modal-string">
-        <p>海外から探す ></p>
-        </div>
-        <div class="map-image-wrapper">
-          <%= image_tag "world_map.jpg", class: "map-image" %>
-          <%# Settings.continent.keysはsettings.ymlのデータが入っている。しかしシンボルのままなので.map(&:to_s)をつけてあげて文字列に変更してあげてeachでまわしてあげる。map-<%= continent はmap-erope,asiaなどが入っている。Settings.continent.sendは文字列を呼び出すためのメソッドのこと。sendを記述しないと(continent)は文字列なのでnilになって文字列を呼び出せない %>
-          <% Settings.continent.keys.map(&:to_s).each do |continent| %>
-            <div class="map-area map-<%= continent %>">
-              <%= link_to  travels_path(continent: continent), class: "map-area map-#{continent}" do %>
-                <i class="fas fa-map-marker-alt color"></i> <%= Settings.continent.send(continent) %>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-        <div class="modal-string">
-        <p>国内から探す ></p>
-        </div>
-        <div class="map-image-wrapper">
-          <%= image_tag "japan_map.jpg", class: "map-image" %>
-          <% Settings.area.keys.map(&:to_s).each do |area| %>
-            <div class="map-area map-<% area %>">
-              <%= link_to travels_path(area: area), class: "map-area map-#{area}" do %>
-                <i class="fas fa-map-marker-alt color"></i> <%= Settings.area.send(area) %>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <%= link_to "投稿一覧", travels_path, class: "list" %>
-        <button type="button" class="btn-header" data-dismiss="modal">閉じる</button>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'shared/map_modal' %>

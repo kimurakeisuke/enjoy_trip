@@ -1,32 +1,32 @@
 <% if params[:continent].present? %>
-<div class="top-image">
-  <%= image_tag "#{params[:continent]}.jpg", style: "width: 100%" %>
-  <div class="text"><%= Settings.continent.send(params[:continent]) %></div>
-</div>
+  <div class="top-image">
+    <%= image_tag "#{params[:continent]}.jpg", style: "width: 100%" %>
+    <div class="text"><%= Settings.continent.send(params[:continent]) %></div>
+  </div>
 <% elsif params[:area].present? %>
-<div class="top-image">
-  <%= image_tag "#{params[:area]}.jpg", style: "width: 100%" %>
-  <div class="text"><%= ("#{Settings.area.send(params[:area])}地方") %></div>
-</div>
+  <div class="top-image">
+    <%= image_tag "#{params[:area]}.jpg", style: "width: 100%" %>
+    <div class="text"><%= ("#{Settings.area.send(params[:area])}地方") %></div>
+  </div>
 <% else %>
-<div class="slider">
-  <%= image_tag "app-top-image.jpg" %>
-  <%= image_tag "stockholm.jpg" %>
-  <%= image_tag "gamla-stan.jpg" %>
-  <%= image_tag "swiss.jpg" %>
-  <%= image_tag "tekapo.jpg" %>
-</div>
+  <div class="slider">
+    <%= image_tag "app-top-image.jpg" %>
+    <%= image_tag "stockholm.jpg" %>
+    <%= image_tag "gamla-stan.jpg" %>
+    <%= image_tag "swiss.jpg" %>
+    <%= image_tag "tekapo.jpg" %>
+  </div>
 <% end %>
 <div class="report">
   <% @travels.each do |travel| %>
     <hr width="80%" noshade>
     <div class="box-img">
-    <p><%= image_tag travel.travel_details.order(:id).first.image.url, width: 300 %></p>
+      <p><%= image_tag travel.travel_details.order(:id).first.image.url, width: 300 %></p>
     </div>
     <div class="box-text">
       <p><%= l travel.created_at, format: :short %></p>
-      <p>国名 : <%= travel.country %></p>
-      <p>地域 : <%= travel.region %></p>
+      <p><%= travel.country %></p>
+      <p><%= travel.region %></p>
       <% if user_signed_in? %>
         <p id="travel-<%= travel.id %>">
           <% if @favorited_travel_ids.include?(travel.id) %>
@@ -47,4 +47,3 @@
   <% end %>
   <%= paginate @travels %>
 </div>
-

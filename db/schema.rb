@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_30_044427) do
+ActiveRecord::Schema.define(version: 2020_10_19_060936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2020_09_30_044427) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "travel_plan"
     t.integer "travel_detail_id"
-    t.integer "favorites_count"
+    t.integer "favorites_count", default: 0
     t.float "latitude"
     t.float "longitude"
     t.string "city"
