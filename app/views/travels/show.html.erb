@@ -7,37 +7,36 @@
 </div>
 <div class="container-post">
   <div class="string-font my-1">
-  <p><%= l @travel.created_at, format: :short %></p>
-  <p><%= @travel.country %></p>
-  <p><%= @travel.region %></p>
-  <p><%= @travel.city %></p>
-  <p><%= @travel.travel_plan %></p>
-  </div>
-  <div id='map'></div>
-  <% @travel_details.each do |travel_detail| %>
-    <p><%= image_tag travel_detail.image.url, width: 600, class: "travel-detils-image" %></p>
-    <div class="content-detail">
-      <%= travel_detail.content %>
-    </div>
-  <% end %>
-  <% if user_signed_in? %>
-    <p id="travel-<%= @travel.id%>">
-      <% if @travel.favorited_by?(current_user) %>
-        <%= render "favorite", travel: @travel %>
-      <% else %>
-        <%= render "disfavorite", travel: @travel %>
-      <% end %>
-    </p>
-  <% end %>
-  <% if user_signed_in? && current_user.id == @travel.user.id %>
-    <p>
-      <%= link_to "編集", edit_travel_path(@travel), class: "list-edit" %>
-      <%= link_to "削除", travel_path(@travel), method: :delete, data: { confirm: "削除しますか?" }, class: "list-remove" %>
-    </p>
-  <% end %>
-  <p><%= link_to "投稿一覧", travels_path, class: "list-post" %></p>
+    <p><%= l @travel.created_at, format: :short %></p>
+    <p><%= @travel.country %></p>
+    <p><%= @travel.region %></p>
+    <p><%= @travel.city %></p>
+    <%= simple_format(h @travel.travel_plan) %></p>
 </div>
-
+<div id='map'></div>
+<% @travel_details.each do |travel_detail| %>
+  <p><%= image_tag travel_detail.image.url, width: 600, class: "travel-detils-image" %></p>
+  <div class="content-detail">
+    <%= simple_format(h travel_detail.content) %>
+  </div>
+<% end %>
+<% if user_signed_in? %>
+  <p id="travel-<%= @travel.id%>">
+    <% if @travel.favorited_by?(current_user) %>
+      <%= render "favorite", travel: @travel %>
+    <% else %>
+      <%= render "disfavorite", travel: @travel %>
+    <% end %>
+  </p>
+<% end %>
+<% if user_signed_in? && current_user.id == @travel.user.id %>
+  <p>
+    <%= link_to "編集", edit_travel_path(@travel), class: "list-edit" %>
+    <%= link_to "削除", travel_path(@travel), method: :delete, data: { confirm: "削除しますか?" }, class: "list-remove" %>
+  </p>
+<% end %>
+<p><%= link_to "投稿一覧", travels_path, class: "list-post" %></p>
+</div>
 <script>
   let map
   
@@ -56,4 +55,3 @@
   }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:map][:api] %>&callback=initMap" async defer></script>
-
