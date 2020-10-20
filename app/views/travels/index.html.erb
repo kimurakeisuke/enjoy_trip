@@ -1,20 +1,20 @@
 <% if Settings.continent.keys.map(&:to_s).include?(params[:continent]) %>
   <div class="top-image">
-    <%= image_tag "#{params[:continent]}.jpg", style: "width: 100%" %>
+    <%= image_tag "/images/#{params[:continent]}.jpg", style: "width: 100%" %>
     <div class="text"><%= Settings.continent.send(params[:continent]) %></div>
   </div>
 <% elsif Settings.area.keys.map(&:to_s).include?(params[:area]) %>
   <div class="top-image">
-    <%= image_tag "#{params[:area]}.jpg", style: "width: 100%" %>
+    <%= image_tag "/images/#{params[:area]}.jpg", style: "width: 100%" %>
     <div class="text"><%= ("#{Settings.area.send(params[:area])}地方") %></div>
   </div>
 <% else %>
   <div class="slider">
-    <%= image_tag "app-top-image.jpg" %>
-    <%= image_tag "stockholm.jpg" %>
-    <%= image_tag "gamla-stan.jpg" %>
-    <%= image_tag "swiss.jpg" %>
-    <%= image_tag "tekapo.jpg" %>
+    <%= image_tag "/images/app-top-image.jpg" %>
+    <%= image_tag "/images/stockholm.jpg" %>
+    <%= image_tag "/images/gamla-stan.jpg" %>
+    <%= image_tag "/images/swiss.jpg" %>
+    <%= image_tag "/images/tekapo.jpg" %>
   </div>
 <% end %>
 <div class="report">
