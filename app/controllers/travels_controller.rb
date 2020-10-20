@@ -3,10 +3,10 @@ class TravelsController < ApplicationController
   before_action :set_travel, only: %i[edit update destroy]
 
   def index
-    if params[:continent].present?
+    if Settings.continent.keys.map(&:to_s).include?(params[:continent])
       # where 与えられた条件にマッチするレコードを全て返す
       @travels = Travel.where(continent: params[:continent]).order(:id).page(params[:page]).per(3)
-    elsif params[:area].present?
+    elsif Settings.area.keys.map(&:to_s).include?(params[:area])
       @travels = Travel.where(area: params[:area]).order(:id).page(params[:page]).per(3)
     else
       @travels = Travel.order(:id).page(params[:page]).per(3)
