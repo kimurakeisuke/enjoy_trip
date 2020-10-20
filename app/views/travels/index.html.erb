@@ -1,9 +1,9 @@
-<% if params[:continent].present? %>
+<% if Settings.continent.keys.map(&:to_s).include?(params[:continent]) %>
   <div class="top-image">
     <%= image_tag "#{params[:continent]}.jpg", style: "width: 100%" %>
     <div class="text"><%= Settings.continent.send(params[:continent]) %></div>
   </div>
-<% elsif params[:area].present? %>
+<% elsif Settings.area.keys.map(&:to_s).include?(params[:area]) %>
   <div class="top-image">
     <%= image_tag "#{params[:area]}.jpg", style: "width: 100%" %>
     <div class="text"><%= ("#{Settings.area.send(params[:area])}地方") %></div>
