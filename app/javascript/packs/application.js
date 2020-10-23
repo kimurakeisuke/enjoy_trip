@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     heicChanger(insertedForm);
   });
 
+// sliderの実装部分
   $(".slider").slick({
     dots: true,
     infinite: true,

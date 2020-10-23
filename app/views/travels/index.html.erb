@@ -1,8 +1,10 @@
+<%# continentのパラメータが異常な場合は無視するように設定 %>
 <% if Settings.continent.keys.map(&:to_s).include?(params[:continent]) %>
   <div class="top-image">
     <%= image_tag "/images/#{params[:continent]}.jpg", style: "width: 100%" %>
     <div class="text"><%= Settings.continent.send(params[:continent]) %></div>
   </div>
+  <%# areaのパラメータが異常な場合は無視するように設定 %>
 <% elsif Settings.area.keys.map(&:to_s).include?(params[:area]) %>
   <div class="top-image">
     <%= image_tag "/images/#{params[:area]}.jpg", style: "width: 100%" %>
