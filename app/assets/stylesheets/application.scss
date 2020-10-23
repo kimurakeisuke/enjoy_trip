@@ -248,12 +248,34 @@ a.map-area {
 
 // topページの投稿の写真と投稿内容の部分
 
+.box-container {
+  width: 540px;
+  display: flex;
+  margin: 0 auto;
+}
+
 .box-img,
 .box-text {
   display: inline-block;
   vertical-align: middle;
   text-align: left;
-  margin-left: 5px;
+}
+
+.box-text {
+  margin-left: 16px;
+}
+
+@media (max-width:550px) {
+  .box-container {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .box-img,
+  .box-text {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .string-font {
@@ -440,21 +462,21 @@ a.list-remove {
 
 }
 
-// header 新規登録 
+// header 新規登録
 @media screen and (max-width: 500px) {
   .nav-new {
     white-space: nowrap;
   }
 }
 
-// header まだ会員でない方 
+// header まだ会員でない方
 @media screen and (min-width: 500px) {
   .header-br {
     display: none;
   }
 }
 
-// header ENJOY TRIP 
+// header ENJOY TRIP
 @media screen and (max-width: 450px) {
   .navbar-brand {
     letter-spacing: 1px;
@@ -463,7 +485,7 @@ a.list-remove {
   }
 }
 
-// header ログイン 
+// header ログイン
 @media screen and (max-width: 500px) {
   .nav-login {
     white-space: nowrap;

@@ -20,29 +20,31 @@
 <div class="report">
   <% @travels.each do |travel| %>
     <hr width="80%" noshade>
-    <div class="box-img">
-      <p><%= image_tag travel.travel_details.order(:id).first.image.url, width: 300 %></p>
-    </div>
-    <div class="box-text">
-      <p><%= l travel.created_at, format: :short %></p>
-      <p><%= travel.country %></p>
-      <p><%= travel.region %></p>
-      <% if user_signed_in? %>
-        <p id="travel-<%= travel.id %>">
-          <% if @favorited_travel_ids.include?(travel.id) %>
-            <%= render "favorite", travel: travel %>
-          <% else %>
-            <%= render "disfavorite", travel: travel %>
+    <div class="box-container">
+      <div class="box-img">
+        <p><%= image_tag travel.travel_details.order(:id).first.image.url, width: 300 %></p>
+      </div>
+      <div class="box-text">
+        <p><%= l travel.created_at, format: :short %></p>
+        <p><%= travel.country %></p>
+        <p><%= travel.region %></p>
+        <% if user_signed_in? %>
+          <p id="travel-<%= travel.id %>">
+            <% if @favorited_travel_ids.include?(travel.id) %>
+              <%= render "favorite", travel: travel %>
+            <% else %>
+              <%= render "disfavorite", travel: travel %>
+            <% end %>
+          </p>
+        <% end %>
+        <p>
+          <%= link_to "詳細", travel , class: "detail" %>
+          <% if user_signed_in? && current_user.id == travel.user.id %>
+            <%= link_to "編集", edit_travel_path(travel), class: "edit" %>
+            <%= link_to "削除", travel_path(travel), method: :delete, data: { confirm: "削除しますか?" } , class: "remove" %>
           <% end %>
         </p>
-      <% end %>
-      <p>
-        <%= link_to "詳細", travel , class: "detail" %>
-        <% if user_signed_in? && current_user.id == travel.user.id %>
-          <%= link_to "編集", edit_travel_path(travel), class: "edit" %>
-          <%= link_to "削除", travel_path(travel), method: :delete, data: { confirm: "削除しますか?" } , class: "remove" %>
-        <% end %>
-      </p>
+      </div>
     </div>
   <% end %>
   <%= paginate @travels %>
