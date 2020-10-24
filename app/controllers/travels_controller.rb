@@ -5,7 +5,7 @@ class TravelsController < ApplicationController
   def index
     # continentのパラメータが異常な場合は無視するように設定
     if Settings.continent.keys.map(&:to_s).include?(params[:continent])
-      # where 与えられた条件にマッチするレコードを全て返す
+      # where 条件に合ったデータを全部取得
       @travels = Travel.where(continent: params[:continent]).order(:id).page(params[:page]).per(3)
       # areaのパラメータが異常な場合は無視するように設定
     elsif Settings.area.keys.map(&:to_s).include?(params[:area])
