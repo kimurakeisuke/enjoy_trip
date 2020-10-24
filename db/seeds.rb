@@ -110,6 +110,13 @@ travel12 = user1.travels.create!(
 
 travel13 = user1.travels.create!(
   country: "日本",
+  region: "広島県",
+  city: "広島市",
+  travel_plan: "東京→広島→東京",
+)
+
+travel14 = user1.travels.create!(
+  country: "日本",
   region: "沖縄県",
   city: "美ら海水族館",
   travel_plan: "東京→沖縄→東京",
@@ -180,6 +187,11 @@ travel_detail12 = travel12.travel_details.create!(
 
 travel_detail13 = travel13.travel_details.create!(
   image: File.open("#{Rails.root}/public/images/seeds/13.jpg"),
+  content: "核兵器による惨状をそのままの形で伝える世界で唯一の建造物であることや、核兵器廃絶と恒久平和の大切さを訴える、他に例をみない平和記念碑であることより、1996年12月に世界遺産に登録されました。",
+)
+
+travel_detail14 = travel14.travel_details.create!(
+  image: File.open("#{Rails.root}/public/images/seeds/14.jpg"),
   content: "巨大水槽の中には全長8.8メートルのジンベイザメをはじめ、世界初の繁殖に成功したナンヨウマンタが観察できます。水槽のアクリルパネルは、高さ8.2m、幅22.5m、厚さ60cmもあります。",
 )
 
