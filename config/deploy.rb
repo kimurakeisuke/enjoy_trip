@@ -3,6 +3,7 @@ lock "~> 3.14.1"
 
 set :application, "enjoy_trip"
 set :repo_url, "git@github.com:kimurakeisuke/enjoy_trip.git"
+set :branch, ENV["BRANCH"] || "master"
 
 append :linked_files, "config/master.key"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "node_modules"
