@@ -183,8 +183,8 @@ a.map-area {
 }
 
 .map-chubu {
-  top: 50%;
-  right: 43%;
+  top: 49%;
+  right: 41%;
 }
 
 .map-kansai {
@@ -194,7 +194,7 @@ a.map-area {
 
 .map-chugoku {
   bottom: 35%;
-  left: 15%;
+  left: 13%;
 }
 
 .map-shikoku {
@@ -238,12 +238,20 @@ a.map-area {
 
 .top-image div.text {
   position: absolute;
-  left: 40px;
-  top: 40px;
+  left: 30px;
+  top: 30px;
   font-size: 40px;
   color: white;
   font-weight: 600;
   letter-spacing: 3px;
+}
+
+@media screen and (max-width:500px) {
+  .top-image div.text {
+    font-size: 20px;
+    left: 4%;
+    top: 7%;
+  }
 }
 
 // topページの投稿の写真と投稿内容の部分
