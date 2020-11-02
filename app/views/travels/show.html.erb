@@ -22,7 +22,7 @@
 <% end %>
 <% if user_signed_in? %>
   <p id="travel-<%= @travel.id%>">
-    <% if @travel.favorited_by?(current_user) %> <%# いいねしているかどうか%>
+    <% if @travel.favorited_by?(current_user) %>
       <%= render "favorite", travel: @travel %>
     <% else %>
       <%= render "disfavorite", travel: @travel %>
